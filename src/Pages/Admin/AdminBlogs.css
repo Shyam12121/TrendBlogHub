@@ -1,0 +1,791 @@
+.admin-blogs-page {
+  padding: 36px 40px 50px;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.admin-blogs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.admin-blogs-header h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 28px;
+}
+
+.admin-blogs-header p {
+  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.blogs-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.blog-stat-card {
+  background: #fff;
+  border: 1px solid #e8edf4;
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.blog-stat-icon {
+  width: 43px;
+  height: 43px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-stat-icon.blue {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.blog-stat-icon.green {
+  background: #ecfdf5;
+  color: #10b981;
+}
+
+.blog-stat-icon.orange {
+  background: #fff7ed;
+  color: #f97316;
+}
+
+.blog-stat-icon.purple {
+  background: #eef2ff;
+  color: #6366f1;
+}
+
+.blog-stat-card span {
+  display: block;
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+.blog-stat-card strong {
+  display: block;
+  color: #0f172a;
+  font-size: 21px;
+  margin-top: 2px;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.admin-blogs-error {
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 9px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  font-size: 11px;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.blogs-table-panel {
+  background: #fff;
+  border: 1px solid #e8edf4;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.035);
+}
+
+.blogs-toolbar {
+  padding: 17px 20px;
+  border-bottom: 1px solid #eef2f7;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.blogs-search {
+  width: 330px;
+  height: 39px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  color: #94a3b8;
+}
+
+.blogs-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 10px;
+}
+
+.blog-status-filter {
+  position: relative;
+  width: 130px;
+}
+
+.blog-status-filter select {
+  appearance: none;
+  width: 100%;
+  height: 39px;
+  padding: 0 28px 0 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: #fff;
+  color: #475569;
+  font-family: inherit;
+  font-size: 10px;
+  outline: none;
+}
+
+.blog-status-filter svg {
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  font-size: 8px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.blogs-table-wrapper {
+  overflow-x: auto;
+}
+
+.blogs-table {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+}
+
+.blogs-table th {
+  height: 45px;
+  padding: 0 20px;
+  background: #f8fafc;
+  text-align: left;
+  color: #64748b;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.blogs-table td {
+  padding: 13px 20px;
+  border-top: 1px solid #f1f5f9;
+}
+
+
+/* =========================================
+   BLOG INFO
+========================================= */
+
+.blog-table-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blog-table-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 9px;
+  background: #eff6ff;
+  color: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.blog-table-title strong {
+  display: block;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #334155;
+  font-size: 10px;
+}
+
+.blog-table-title span {
+  display: block;
+  color: #94a3b8;
+  font-size: 8px;
+  margin-top: 2px;
+}
+
+.blog-author {
+  color: #475569;
+  font-size: 10px;
+}
+
+.blog-id {
+  color: #94a3b8;
+  font-size: 9px;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.blog-status-control {
+  position: relative;
+  width: 110px;
+}
+
+.blog-status-control select {
+  appearance: none;
+  width: 100%;
+  height: 30px;
+  padding: 0 25px 0 9px;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  background: #fff;
+  color: #475569;
+  font-family: inherit;
+  font-size: 9px;
+  outline: none;
+  cursor: pointer;
+}
+
+.blog-status-control svg {
+  position: absolute;
+  right: 9px;
+  top: 11px;
+  font-size: 7px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.blog-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.blog-view-btn,
+.blog-delete-btn {
+  width: 31px;
+  height: 31px;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.blog-view-btn {
+  background: #eff6ff;
+  color: #3b82f6;
+}
+
+.blog-view-btn:hover {
+  background: #dbeafe;
+}
+
+.blog-delete-btn {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.blog-delete-btn:hover {
+  background: #fee2e2;
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.blogs-empty {
+  height: 250px;
+  text-align: center !important;
+  color: #94a3b8;
+}
+
+.blogs-empty svg {
+  display: block;
+  margin: 0 auto 10px;
+  font-size: 25px;
+  color: #cbd5e1;
+}
+
+.blogs-empty strong {
+  display: block;
+  color: #475569;
+  font-size: 12px;
+}
+
+.blogs-empty span {
+  display: block;
+  margin-top: 5px;
+  font-size: 9px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+  .blogs-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .admin-blogs-page {
+    padding: 28px 20px 40px;
+  }
+
+  .blogs-toolbar {
+    flex-direction: column;
+  }
+
+  .blogs-search {
+    width: 100%;
+  }
+
+  .blog-status-filter {
+    width: 100%;
+  }
+}
+
+@media (max-width: 550px) {
+  .admin-blogs-page {
+    padding: 22px 14px 35px;
+  }
+
+  .admin-blogs-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .blogs-stats {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================================
+   ADMIN BLOG HEADER ACTIONS
+========================================= */
+
+.admin-blog-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-create-blog-btn {
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 11px 17px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.admin-create-blog-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   BLOG IMAGE
+========================================= */
+
+.blog-table-image {
+  width: 58px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  overflow: hidden;
+  background: #eff6ff;
+}
+
+.blog-table-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blog-table-image .blog-table-icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   BLOG EDIT BUTTON
+========================================= */
+
+.blog-edit-btn {
+  border: none;
+  background: #eff6ff;
+  color: #2563eb;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.blog-edit-btn:hover {
+  background: #dbeafe;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .admin-blogs-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-blog-header-actions {
+    width: 100%;
+  }
+
+  .admin-create-blog-btn,
+  .admin-refresh-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+}
+/* =========================================
+   DRAFT ROW HIGHLIGHT
+========================================= */
+
+.blog-row-draft {
+  background: #fffbeb;
+}
+
+.blog-row-draft:hover {
+  background: #fef3c7;
+}
+
+/* =========================================
+   DRAFT LOCK NOTE
+========================================= */
+
+.draft-lock-note {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  color: #ea580c;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.draft-lock-note svg {
+  font-size: 9px;
+}
+
+/* =========================================
+   DISABLED BUTTON STATES
+========================================= */
+
+.blog-edit-btn:disabled,
+.blog-delete-btn:disabled,
+.blog-status-control select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.4);
+}
+
+.blog-status-control select:disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+}
+/* Dropdown options */
+.blog-status-control select option[value="reject"] {
+  color: #dc2626;
+  font-weight: 600;
+}
+/* =========================================
+   STATUS CELL + SUBMIT BUTTON
+========================================= */
+
+.blog-status-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.blog-status-submit-row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.blog-status-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 7px;
+  background: #4f46e5;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.blog-status-submit:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.blog-status-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.blog-status-cancel {
+  padding: 5px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 7px;
+  background: #fff;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.blog-status-cancel:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.blog-status-cancel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   REJECTED ROW + RED ICON
+========================================= */
+
+.blog-row-rejected {
+  background: #fef2f2;
+}
+
+.blog-row-rejected:hover {
+  background: #fee2e2;
+}
+
+.blog-stat-icon.red {
+  background: #fef2f2;
+  color: #dc2626;
+}
+/* =========================================
+   BULK ACTION BAR
+========================================= */
+
+.bulk-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 1px solid #c7d2fe;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08);
+}
+
+.bulk-action-info {
+  color: #3730a3;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.bulk-action-info strong {
+  color: #4f46e5;
+  font-size: 15px;
+  font-weight: 800;
+  margin-right: 2px;
+}
+
+.bulk-action-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.bulk-action-select {
+  height: 36px;
+  padding: 0 32px 0 12px;
+  border: 1px solid #c7d2fe;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+  min-width: 180px;
+}
+
+.bulk-action-select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.bulk-action-submit,
+.bulk-action-clear {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.bulk-action-submit {
+  background: #4f46e5;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.bulk-action-submit:hover:not(:disabled) {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.bulk-action-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.bulk-action-clear {
+  background: #ffffff;
+  color: #64748b;
+  border: 1px solid #e5e7eb;
+}
+
+.bulk-action-clear:hover:not(:disabled) {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.bulk-action-clear:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =========================================
+   TABLE — CHECKBOX COLUMN
+========================================= */
+
+.col-checkbox {
+  width: 40px;
+  text-align: center;
+  padding-left: 12px !important;
+  padding-right: 6px !important;
+}
+
+.row-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #4f46e5;
+  border-radius: 4px;
+}
+
+.row-checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Selected row highlight */
+.blog-row-selected {
+  background: #eef2ff !important;
+}
+
+.blog-row-selected:hover {
+  background: #e0e7ff !important;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+  .bulk-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .bulk-action-controls {
+    width: 100%;
+  }
+
+  .bulk-action-select {
+    flex: 1;
+    min-width: 0;
+  }
+}

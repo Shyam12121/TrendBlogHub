@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Block admin/internal pages
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /dashboard/
+Disallow: /profile/edit/
+Disallow: /search/
+Disallow: /*?sort=
+Disallow: /*?filter=
+Disallow: /*?page=
+
+# Sitemaps
+Sitemap: https://trendbloghub.com/sitemap.xml

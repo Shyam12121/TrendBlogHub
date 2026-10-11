@@ -1,0 +1,455 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: #f8faff;
+}
+
+/* =========================
+   Container
+========================= */
+.container {
+  width: 92%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* =========================
+   Top Bar
+========================= */
+.topbar {
+  height: 34px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #94a3b8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topbar strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* =========================
+   Header
+========================= */
+.header {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.03);
+}
+
+.header .container {
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* =========================
+   Logo
+========================= */
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================
+   Menu
+========================= */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.menu-item {
+  position: relative;
+}
+
+/* ===== Menu Button ===== */
+.menu-btn {
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: #f1f5f9;
+  color: #0b1a33;
+  padding: 10px 20px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.menu-btn svg {
+  font-size: 15px;
+}
+
+/* ===== Menu Links ===== */
+.menu-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 40px;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-link:hover {
+  color: #2563eb;
+  background: #f1f5f9;
+}
+
+.menu-link svg {
+  font-size: 14px;
+}
+
+/* =========================
+   Category Dropdown
+========================= */
+.category-dropdown {
+  position: absolute;
+  top: 58px;
+  left: 0;
+  width: 320px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.96);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  padding: 6px 0;
+}
+
+.menu-item:hover .category-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.category-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #334155;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.category-dropdown a svg {
+  font-size: 16px;
+  color: #2563eb;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.category-dropdown a:hover {
+  background: #f1f5f9;
+  color: #0b1a33;
+  padding-left: 28px;
+}
+
+.category-dropdown a:hover svg {
+  opacity: 1;
+}
+
+/* ===== Badge in dropdown ===== */
+.badge {
+  margin-left: auto;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background: #dbeafe;
+  color: #2563eb;
+  letter-spacing: 0.3px;
+}
+
+.badge-hot {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.badge-new {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.browse-all {
+  color: #2563eb !important;
+  font-weight: 600 !important;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 4px;
+  padding-top: 14px !important;
+}
+
+.browse-all svg {
+  color: #2563eb !important;
+  opacity: 1 !important;
+}
+
+/* =========================
+   Right Menu
+========================= */
+.right-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ===== Search Button ===== */
+.search-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* ===== Publish Button ===== */
+.publish-btn {
+  text-decoration: none;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+  border: none;
+  cursor: pointer;
+}
+
+.publish-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.3);
+}
+
+.publish-btn svg {
+  font-size: 14px;
+}
+
+/* =========================
+   Mobile Menu Toggle (Hamburger)
+========================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2.5px;
+  background: #0b1a33;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle:hover span {
+  background: #2563eb;
+}
+
+/* =========================
+   Mobile Menu
+========================= */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  padding: 80px 24px 40px;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu .close-btn {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #0b1a33;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: #334155;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 14px 16px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-menu a:hover {
+  background: #f1f5f9;
+  color: #2563eb;
+}
+
+.mobile-menu .mobile-publish {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff !important;
+  justify-content: center;
+  border-radius: 40px;
+}
+
+.mobile-menu .mobile-publish:hover {
+  background: #2563eb;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+/* =========================
+   Responsive
+========================= */
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .menu-link:not(:first-child) {
+    display: none;
+  }
+
+  .logo-img {
+    height: 38px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 992px) {
+  .menu {
+    display: none;
+  }
+
+  .publish-btn {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .header .container {
+    height: 62px;
+  }
+
+  .logo-img {
+    height: 34px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+  .topbar {
+    display: none;
+  }
+
+  .logo-img {
+    height: 30px;
+  }
+
+  .search-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .mobile-menu a {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+}

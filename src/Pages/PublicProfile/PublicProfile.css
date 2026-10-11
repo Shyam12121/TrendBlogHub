@@ -1,0 +1,766 @@
+.public-profile-page {
+  min-height: 100vh;
+  background: #f8faff;
+  color: #0f172a;
+}
+
+/* ==========================================
+   COVER
+========================================== */
+
+.public-profile-cover {
+  width: 100%;
+  height: 330px;
+  position: relative;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.public-profile-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.public-profile-cover-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.05),
+      rgba(15, 23, 42, 0.28)
+    );
+  pointer-events: none;
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.public-profile-container {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+/* ==========================================
+   BACK
+========================================== */
+
+.public-profile-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 24px 0 18px;
+
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.public-profile-back:hover {
+  color: #1d4ed8;
+  transform: translateX(-3px);
+}
+
+/* ==========================================
+   PROFILE CARD
+========================================== */
+
+.public-profile-card {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 150px;
+
+  align-items: center;
+  gap: 30px;
+
+  padding: 34px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+
+  box-shadow:
+    0 18px 50px rgba(15, 23, 42, 0.08);
+
+  margin-bottom: 55px;
+}
+
+/* ==========================================
+   AVATAR
+========================================== */
+
+.public-profile-avatar {
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  flex-shrink: 0;
+
+  background: #ffffff;
+
+  border: 6px solid #ffffff;
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.18);
+
+  position: relative;
+  z-index: 5;
+}
+
+.public-profile-avatar img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+/* ==========================================
+   PROFILE INFO
+========================================== */
+
+.public-profile-info {
+  min-width: 0;
+}
+
+.public-profile-label {
+  display: inline-block;
+
+  margin-bottom: 7px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.public-profile-info h1 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.12;
+
+  font-weight: 800;
+
+  letter-spacing: -1px;
+}
+
+.public-profile-username {
+  margin-top: 6px;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.public-profile-bio {
+  max-width: 700px;
+
+  margin: 15px 0 17px;
+
+  color: #475569;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   DETAILS
+========================================== */
+
+.public-profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 18px;
+}
+
+.public-profile-details span,
+.public-profile-details a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.public-profile-details svg {
+  color: #2563eb;
+  font-size: 13px;
+}
+
+.public-profile-details a:hover {
+  color: #2563eb;
+}
+
+/* ==========================================
+   STAT
+========================================== */
+
+.public-profile-stat {
+  min-width: 130px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 22px 15px;
+
+  border-left: 1px solid #e5e7eb;
+}
+
+.public-profile-stat svg {
+  margin-bottom: 10px;
+
+  color: #2563eb;
+
+  font-size: 24px;
+}
+
+.public-profile-stat strong {
+  color: #0f172a;
+
+  font-size: 30px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+.public-profile-stat span {
+  margin-top: 7px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+/* ==========================================
+   BLOG SECTION
+========================================== */
+
+.public-profile-blogs {
+  width: 100%;
+}
+
+.public-profile-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.public-profile-section-heading > div > span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.public-profile-section-heading h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: clamp(26px, 4vw, 36px);
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.public-profile-section-heading h2 strong {
+  color: #2563eb;
+}
+
+.public-profile-section-heading > span {
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ==========================================
+   BLOG GRID
+========================================== */
+
+.public-profile-blog-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+}
+
+/* ==========================================
+   BLOG CARD
+========================================== */
+
+.public-profile-blog-card {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.public-profile-blog-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 18px 45px rgba(37, 99, 235, 0.12);
+}
+
+/* ==========================================
+   BLOG IMAGE
+========================================== */
+
+.public-profile-blog-image {
+  display: block;
+
+  width: 100%;
+  height: 210px;
+
+  overflow: hidden;
+
+  background: #e2e8f0;
+}
+
+.public-profile-blog-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.35s ease;
+}
+
+.public-profile-blog-card:hover
+.public-profile-blog-image img {
+  transform: scale(1.04);
+}
+
+/* ==========================================
+   BLOG CONTENT
+========================================== */
+
+.public-profile-blog-content {
+  padding: 21px;
+}
+
+.public-profile-blog-category {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-bottom: 10px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.public-profile-blog-category svg {
+  font-size: 10px;
+}
+
+.public-profile-blog-category:hover {
+  color: #1d4ed8;
+}
+
+.public-profile-blog-title-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.public-profile-blog-content h3 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 19px;
+  line-height: 1.4;
+
+  font-weight: 750;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+
+  transition: color 0.2s ease;
+}
+
+.public-profile-blog-title-link:hover h3 {
+  color: #2563eb;
+}
+
+.public-profile-blog-content p {
+  margin: 11px 0 16px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.65;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   BLOG META
+========================================== */
+
+.public-profile-blog-meta {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 10px 16px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #eef2f7;
+}
+
+.public-profile-blog-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.public-profile-blog-meta svg {
+  color: #2563eb;
+}
+
+/* ==========================================
+   EMPTY
+========================================== */
+
+.public-profile-empty {
+  padding: 70px 20px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+}
+
+.public-profile-empty > svg {
+  margin-bottom: 15px;
+
+  color: #94a3b8;
+
+  font-size: 40px;
+}
+
+.public-profile-empty h3 {
+  margin: 0 0 7px;
+
+  color: #0f172a;
+
+  font-size: 20px;
+}
+
+.public-profile-empty p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.public-profile-loading {
+  min-height: 500px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+}
+
+.public-profile-loading p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.public-profile-spinner {
+  width: 40px;
+  height: 40px;
+
+  border: 4px solid #dbeafe;
+  border-top-color: #2563eb;
+
+  border-radius: 50%;
+
+  animation:
+    public-profile-spin 0.8s linear infinite;
+}
+
+@keyframes public-profile-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.public-profile-error {
+  min-height: 500px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.public-profile-error > svg {
+  margin-bottom: 18px;
+
+  color: #2563eb;
+
+  font-size: 42px;
+}
+
+.public-profile-error h1 {
+  margin: 0 0 15px;
+
+  color: #0f172a;
+
+  font-size: 25px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .public-profile-card {
+    grid-template-columns: 125px minmax(0, 1fr);
+    gap: 24px;
+
+    padding: 28px;
+  }
+
+  .public-profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .public-profile-stat {
+    grid-column: 1 / -1;
+
+    flex-direction: row;
+
+    gap: 12px;
+
+    justify-content: flex-start;
+
+    border-left: 0;
+    border-top: 1px solid #e5e7eb;
+
+    padding: 18px 0 0;
+  }
+
+  .public-profile-stat svg {
+    margin: 0;
+  }
+
+  .public-profile-stat strong {
+    font-size: 24px;
+  }
+
+  .public-profile-stat span {
+    margin: 0;
+  }
+
+  .public-profile-blog-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+  .public-profile-cover {
+    height: 240px;
+  }
+
+  .public-profile-container {
+    width: min(100% - 24px, 600px);
+  }
+
+  .public-profile-card {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    gap: 20px;
+
+    padding: 25px 20px;
+  }
+
+  .public-profile-avatar {
+    width: 115px;
+    height: 115px;
+
+    margin: -65px auto 0;
+  }
+
+  .public-profile-info h1 {
+    font-size: 29px;
+  }
+
+  .public-profile-details {
+    justify-content: center;
+  }
+
+  .public-profile-stat {
+    justify-content: center;
+  }
+
+  .public-profile-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .public-profile-blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .public-profile-blog-image {
+    height: 220px;
+  }
+}
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 420px) {
+  .public-profile-cover {
+    height: 200px;
+  }
+
+  .public-profile-container {
+    width: calc(100% - 18px);
+  }
+
+  .public-profile-card {
+    border-radius: 18px;
+    padding: 22px 15px;
+  }
+
+  .public-profile-avatar {
+    width: 100px;
+    height: 100px;
+
+    margin-top: -55px;
+  }
+
+  .public-profile-info h1 {
+    font-size: 25px;
+  }
+
+  .public-profile-bio {
+    font-size: 13px;
+  }
+
+  .public-profile-blog-content {
+    padding: 17px;
+  }
+
+  .public-profile-blog-image {
+    height: 190px;
+  }
+}

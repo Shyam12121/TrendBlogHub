@@ -1,0 +1,49 @@
+/* =========================================
+   EDIT BLOG PAGE
+   (reuses CreateBlog styles)
+========================================= */
+
+/* Import shared CreateBlog styles */
+@import "../CreateBlog/CreateBlog.css";
+
+/* =========================================
+   EDIT BLOG SPECIFIC
+========================================= */
+
+.status-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: #fffbeb;
+  border: 1px solid #fef3c7;
+  border-radius: 9px;
+  color: #92400e;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.status-warning svg {
+  margin-top: 2px;
+  flex-shrink: 0;
+  font-size: 12px;
+}
+/* =========================================
+   REJECTED WARNING (red instead of yellow)
+========================================= */
+
+.status-warning-rejected {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.status-warning-rejected svg {
+  color: #dc2626;
+}
+
+.status-warning-rejected strong {
+  color: #7f1d1d;
+  font-weight: 700;
+}

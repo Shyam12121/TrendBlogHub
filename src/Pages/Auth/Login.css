@@ -1,0 +1,838 @@
+/* ==========================================
+   LOGIN PAGE
+   ========================================== */
+
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #f8faff 0%,
+    #eef2ff 100%
+  );
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   CONTAINER
+   ========================================== */
+
+.login-page .auth-container {
+  width: 100%;
+  max-width: 460px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   BACK TO HOME
+   ========================================== */
+
+.login-page .auth-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+
+  text-decoration: none;
+  margin-bottom: 20px;
+
+  transition: color 0.2s ease;
+}
+
+.login-page .auth-back:hover {
+  color: #2563eb;
+}
+
+/* ==========================================
+   AUTH CARD
+   ========================================== */
+
+.login-page .auth-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  padding: 48px 40px 40px;
+
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.02);
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.login-page .auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.login-page .auth-header h1 {
+  margin: 0 0 6px;
+
+  font-size: 28px;
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  color: #0b1a33;
+
+  letter-spacing: -0.5px;
+}
+
+.login-page .auth-header p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   FORM
+   ========================================== */
+
+.login-page .auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ==========================================
+   FORM GROUP
+   ========================================== */
+
+.login-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  width: 100%;
+}
+
+.login-page .form-group label {
+  display: block;
+
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  font-weight: 600;
+
+  color: #1e293b;
+}
+
+/* ==========================================
+   INPUT WRAPPER
+   ========================================== */
+
+.login-page .input-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   LEFT INPUT ICON
+   ========================================== */
+
+.login-page .input-icon {
+  position: absolute;
+
+  left: 15px;
+  top: 50%;
+
+  width: 16px;
+  height: 16px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #94a3b8;
+
+  font-size: 15px;
+  line-height: 1;
+
+  pointer-events: none;
+
+  z-index: 5;
+
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   INPUT
+   ========================================== */
+
+.login-page .input-wrapper input {
+  display: block;
+
+  width: 100%;
+  height: 48px;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 12px 48px 12px 44px !important;
+
+  border: 2px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  color: #0b1a33;
+
+  background-color: #fafbfc;
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* ==========================================
+   EMAIL + PASSWORD INPUT
+   ========================================== */
+
+.login-page .input-wrapper input[type="email"],
+.login-page .input-wrapper input[type="password"],
+.login-page .input-wrapper input[type="text"] {
+  padding-left: 44px !important;
+  padding-right: 48px !important;
+}
+
+/* ==========================================
+   INPUT FOCUS
+   ========================================== */
+
+.login-page .input-wrapper input:focus {
+  border-color: #2563eb;
+
+  background-color: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+/* ==========================================
+   PLACEHOLDER
+   ========================================== */
+
+.login-page .input-wrapper input::placeholder {
+  color: #94a3b8;
+
+  font-weight: 400;
+
+  opacity: 1;
+}
+
+/* ==========================================
+   PASSWORD TOGGLE
+   ========================================== */
+
+.login-page .password-toggle {
+  position: absolute;
+
+  right: 10px;
+  top: 50%;
+
+  width: 32px;
+  height: 32px;
+
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  margin: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: #94a3b8;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  line-height: 1;
+
+  z-index: 6;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.login-page .password-toggle:hover {
+  color: #0b1a33;
+
+  background: #f1f5f9;
+}
+
+.login-page .password-toggle:focus {
+  outline: none;
+
+  color: #2563eb;
+}
+
+/* ==========================================
+   CHROME AUTOFILL FIX
+   ========================================== */
+
+.login-page .input-wrapper input:-webkit-autofill,
+.login-page .input-wrapper input:-webkit-autofill:hover,
+.login-page .input-wrapper input:-webkit-autofill:focus,
+.login-page .input-wrapper input:-webkit-autofill:active {
+  -webkit-text-fill-color: #0b1a33;
+
+  -webkit-box-shadow:
+    0 0 0 1000px #fafbfc inset;
+
+  box-shadow:
+    0 0 0 1000px #fafbfc inset;
+
+  padding-left: 44px !important;
+  padding-right: 48px !important;
+
+  caret-color: #0b1a33;
+
+  transition:
+    background-color 9999s ease-in-out 0s;
+}
+
+/* Autofill focus */
+
+.login-page .input-wrapper input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #0b1a33;
+
+  -webkit-box-shadow:
+    0 0 0 1000px #ffffff inset,
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+
+  box-shadow:
+    0 0 0 1000px #ffffff inset,
+    0 0 0 4px rgba(37, 99, 235, 0.08);
+
+  border-color: #2563eb;
+
+  padding-left: 44px !important;
+  padding-right: 48px !important;
+}
+
+/* ==========================================
+   CAPTCHA
+   ========================================== */
+
+.login-page .captcha-group {
+  gap: 8px;
+}
+
+.login-page .captcha-wrapper {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  box-sizing: border-box;
+
+  background: #f1f5f9;
+
+  border: 2px solid #e2e8f0;
+
+  border-radius: 12px;
+
+  padding: 6px 12px 6px 6px;
+
+  transition: border-color 0.2s ease;
+}
+
+.login-page .captcha-wrapper:focus-within {
+  border-color: #2563eb;
+}
+
+/* ==========================================
+   CAPTCHA CANVAS
+   ========================================== */
+
+.login-page .captcha-canvas {
+  display: block;
+
+  width: 160px;
+  height: 50px;
+
+  flex-shrink: 0;
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  cursor: default;
+
+  user-select: none;
+}
+
+/* ==========================================
+   CAPTCHA REFRESH
+   ========================================== */
+
+.login-page .captcha-refresh {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #2563eb;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04);
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.login-page .captcha-refresh:hover {
+  background: #2563eb;
+
+  color: #ffffff;
+
+  transform: rotate(180deg);
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.login-page .captcha-refresh:active {
+  transform: rotate(360deg);
+}
+
+.login-page .captcha-refresh:focus {
+  outline: none;
+}
+
+/* ==========================================
+   CAPTCHA INPUT
+   ========================================== */
+
+.login-page .captcha-input-wrapper {
+  height: 48px;
+}
+
+.login-page .captcha-input-wrapper input {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* CAPTCHA input should NOT use left icon spacing */
+
+.login-page .captcha-input-wrapper input[type="text"] {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* ==========================================
+   CAPTCHA ERROR
+   ========================================== */
+
+.login-page .captcha-error {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #dc2626;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+
+  font-weight: 500;
+}
+
+/* ==========================================
+   FORM ERROR
+   ========================================== */
+
+.login-page .form-error {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  color: #dc2626;
+
+  font-size: 13px;
+  line-height: 1.4;
+
+  font-weight: 500;
+
+  text-align: center;
+
+  padding: 8px 12px;
+
+  background: #fef2f2;
+
+  border-radius: 8px;
+
+  border: 1px solid #fecaca;
+}
+
+/* ==========================================
+   FORM OPTIONS
+   ========================================== */
+
+.login-page .form-options {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  font-size: 13px;
+}
+
+/* ==========================================
+   REMEMBER ME
+   ========================================== */
+
+.login-page .remember-me {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #475569;
+
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.login-page .remember-me input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+
+  margin: 0;
+
+  accent-color: #2563eb;
+
+  cursor: pointer;
+}
+
+/* ==========================================
+   FORGOT PASSWORD
+   ========================================== */
+
+.login-page .forgot-link {
+  color: #2563eb;
+
+  text-decoration: none;
+
+  font-weight: 500;
+
+  transition: color 0.2s ease;
+}
+
+.login-page .forgot-link:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+/* ==========================================
+   LOGIN BUTTON
+   ========================================== */
+
+.login-page .auth-btn {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px;
+
+  margin-top: 6px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: linear-gradient(
+    135deg,
+    #2563eb,
+    #4f46e5
+  );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 15px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.2s ease;
+}
+
+.login-page .auth-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 28px rgba(37, 99, 235, 0.3);
+}
+
+.login-page .auth-btn:active {
+  transform: translateY(0);
+}
+
+.login-page .auth-btn:disabled {
+  opacity: 0.7;
+
+  cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.login-page .auth-footer {
+  text-align: center;
+
+  margin-top: 20px;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.login-page .auth-link {
+  color: #2563eb;
+
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.login-page .auth-link:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 576px) {
+  .login-page {
+    padding: 16px;
+  }
+
+  .login-page .auth-card {
+    padding: 32px 20px 28px;
+
+    border-radius: 16px;
+  }
+
+  .login-page .auth-header {
+    margin-bottom: 26px;
+  }
+
+  .login-page .auth-header h1 {
+    font-size: 24px;
+  }
+
+  .login-page .auth-header p {
+    font-size: 13px;
+  }
+
+  /* Input */
+
+  .login-page .input-wrapper {
+    height: 46px;
+  }
+
+  .login-page .input-wrapper input {
+    height: 46px;
+
+    padding-left: 42px !important;
+    padding-right: 44px !important;
+  }
+
+  .login-page .input-wrapper input[type="email"],
+  .login-page .input-wrapper input[type="password"],
+  .login-page .input-wrapper input[type="text"] {
+    padding-left: 42px !important;
+    padding-right: 44px !important;
+  }
+
+  /* Icon */
+
+  .login-page .input-icon {
+    left: 14px;
+
+    width: 15px;
+    height: 15px;
+
+    font-size: 14px;
+  }
+
+  /* Password eye */
+
+  .login-page .password-toggle {
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Autofill mobile */
+
+  .login-page .input-wrapper input:-webkit-autofill,
+  .login-page .input-wrapper input:-webkit-autofill:hover,
+  .login-page .input-wrapper input:-webkit-autofill:focus,
+  .login-page .input-wrapper input:-webkit-autofill:active {
+    padding-left: 42px !important;
+    padding-right: 44px !important;
+  }
+
+  /* Options */
+
+  .login-page .form-options {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 10px;
+  }
+
+  /* CAPTCHA */
+
+  .login-page .captcha-wrapper {
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    padding: 10px;
+  }
+
+  .login-page .captcha-canvas {
+    width: 140px;
+    height: 44px;
+  }
+
+  .login-page .captcha-refresh {
+    width: 34px;
+    height: 34px;
+
+    font-size: 14px;
+  }
+
+  .login-page .captcha-input-wrapper {
+    height: 46px;
+  }
+
+  .login-page .captcha-input-wrapper input {
+    height: 46px;
+
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* ==========================================
+   VERY SMALL SCREENS
+   ========================================== */
+
+@media (max-width: 360px) {
+  .login-page {
+    padding: 12px;
+  }
+
+  .login-page .auth-card {
+    padding: 28px 16px 24px;
+  }
+
+  .login-page .auth-header h1 {
+    font-size: 22px;
+  }
+
+  .login-page .captcha-wrapper {
+    gap: 8px;
+  }
+
+  .login-page .captcha-canvas {
+    width: 130px;
+  }
+}

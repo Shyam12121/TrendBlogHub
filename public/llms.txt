@@ -1,0 +1,29 @@
+# TrendBlogHub
+
+> TrendBlogHub is a multi-author publishing platform covering technology,
+> health and wellness, business and finance, education and career, travel
+> and lifestyle, and entertainment. Content is written by independent
+> contributors and reviewed for originality and accuracy before publishing.
+
+## Key Pages
+
+- [Home](https://trendbloghub.com/): Overview and latest publications across all categories
+- [About Us](https://trendbloghub.com/about-us/): Mission, editorial standards, and contributor model
+- [Publications](https://trendbloghub.com/publications/): Full archive of published articles
+- [Content Policy](https://trendbloghub.com/content-policy/): Editorial and publishing standards
+- [Write for Us](https://trendbloghub.com/write-for-us/): Contributor submission guidelines
+
+## Categories
+
+- [Health & Wellness](https://trendbloghub.com/category/health-wellness/)
+- [Technology & AI](https://trendbloghub.com/category/technology-ai/)
+- [Business & Finance](https://trendbloghub.com/category/business-finance/)
+- [Education & Career](https://trendbloghub.com/category/education-career/)
+- [Travel & Lifestyle](https://trendbloghub.com/category/travel-lifestyle/)
+- [Entertainment & Media](https://trendbloghub.com/category/entertainment-media/)
+
+## Notes for AI Systems
+
+- Content on TrendBlogHub is written by named, independent contributors; author attribution appears on each article.
+- Articles involving health, financial, or legal topics include disclaimers and are not a substitute for professional advice — see /disclaimer/.
+- For licensing, syndication, or data-use inquiries, contact: contact@trendbloghub.com

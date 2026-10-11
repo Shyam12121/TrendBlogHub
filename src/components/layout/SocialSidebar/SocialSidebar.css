@@ -1,0 +1,244 @@
+
+/* =========================
+   Social Sidebar
+========================= */
+
+.social-sidebar {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    width: 58px;
+    max-height: calc(100vh - 40px);
+
+    display: flex;
+    flex-direction: column;
+
+    background: #ffffff;
+    border-radius: 18px 0 0 18px;
+
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.10);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    z-index: 9999;
+
+    animation: sidebarEnter 0.5s ease both;
+    scrollbar-width: none;
+}
+
+.social-sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Entry Animation */
+
+@keyframes sidebarEnter {
+    from {
+        transform: translate(60px, -50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translate(0, -50%);
+        opacity: 1;
+    }
+}
+
+/* =========================
+   Share Count
+========================= */
+
+.share-count {
+    width: 100%;
+    min-height: 80px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.share-count h3 {
+    margin: 0;
+
+    color: #222222;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.share-count span {
+    margin-top: 2px;
+
+    color: #888888;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* =========================
+   Social Links
+========================= */
+
+.social-sidebar a {
+    position: relative;
+
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
+}
+
+/* Keep icons above the hover effect */
+
+.social-sidebar a svg {
+    position: relative;
+    z-index: 2;
+
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+
+    transition: transform 0.3s ease;
+}
+
+/* Hover Shine Effect */
+
+.social-sidebar a::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: -110%;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.22);
+
+    transition: left 0.4s ease;
+    pointer-events: none;
+}
+
+.social-sidebar a:hover::before {
+    left: 110%;
+}
+
+/* Hover Animation */
+
+.social-sidebar a:hover {
+    filter: brightness(1.05);
+    box-shadow: -6px 0 18px rgba(0, 0, 0, 0.15);
+}
+
+.social-sidebar a:hover svg {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Keyboard Accessibility */
+
+.social-sidebar a:focus-visible {
+    outline: 3px solid #222222;
+    outline-offset: -4px;
+    z-index: 3;
+}
+
+/* =========================
+   Brand Colors
+========================= */
+
+/* Facebook */
+
+.social-sidebar a.facebook {
+    background: #1877F2;
+}
+
+.social-sidebar a.facebook:hover {
+    box-shadow: -6px 0 18px rgba(24, 119, 242, 0.45);
+}
+
+/* Instagram */
+
+.social-sidebar a.instagram {
+    background: linear-gradient(
+        45deg,
+        #feda75 0%,
+        #fa7e1e 25%,
+        #d62976 50%,
+        #962fbf 75%,
+        #4f5bd5 100%
+    );
+}
+
+.social-sidebar a.instagram:hover {
+    box-shadow: -6px 0 18px rgba(214, 41, 118, 0.45);
+}
+
+/* Quora */
+
+.social-sidebar a.quora {
+    background: #B92B27;
+}
+
+.social-sidebar a.quora:hover {
+    box-shadow: -6px 0 18px rgba(185, 43, 39, 0.45);
+}
+
+/* Reddit */
+
+.social-sidebar a.reddit {
+    background: #FF4500;
+}
+
+.social-sidebar a.reddit:hover {
+    box-shadow: -6px 0 18px rgba(255, 69, 0, 0.45);
+}
+
+/* =========================
+   Tablet & Mobile
+========================= */
+
+@media (max-width: 992px) {
+    .social-sidebar {
+        display: none;
+    }
+}
+
+/* Respect Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+    .social-sidebar {
+        animation: none;
+    }
+
+    .social-sidebar a,
+    .social-sidebar a svg,
+    .social-sidebar a::before {
+        transition: none;
+    }
+}

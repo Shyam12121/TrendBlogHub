@@ -1,0 +1,586 @@
+/* ==========================================
+   RICH EDITOR — Base
+========================================== */
+
+.rich-editor {
+  width: 100%;
+  border: 1px solid #dbe1ea;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.rich-editor:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.rich-editor-disabled {
+  opacity: 0.65;
+}
+
+/* ==========================================
+   TOOLBAR
+========================================== */
+
+.rich-editor-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 9px 10px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rich-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rich-toolbar-divider {
+  width: 1px;
+  height: 25px;
+  background: #dbe1ea;
+  margin: 0 5px;
+}
+
+.rich-toolbar-btn {
+  min-width: 34px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  transition: 0.15s ease;
+}
+
+.rich-toolbar-btn:hover:not(:disabled) {
+  background: #e0e7ff;
+  color: #4338ca;
+}
+
+.rich-toolbar-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ==========================================
+   HEADING DROPDOWN
+========================================== */
+
+.rich-heading-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.rich-heading-select select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #dbe1ea;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #334155;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 28px 6px 10px;
+  cursor: pointer;
+  min-width: 120px;
+  height: 32px;
+}
+
+.rich-heading-select select:hover:not(:disabled) {
+  border-color: #6366f1;
+}
+
+.rich-heading-select select:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.rich-heading-arrow {
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+/* ==========================================
+   EDITOR CONTENT — Base
+========================================== */
+
+.rich-editor-content {
+  min-height: 430px;
+  padding: 18px;
+  outline: none;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-y: auto;
+}
+
+.rich-editor-content:empty::before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+/* ==========================================
+   PARAGRAPHS / DIVS
+========================================== */
+
+.rich-editor-content p {
+  margin: 0 0 12px;
+  color: #1e293b;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.rich-editor-content div {
+  margin: 0 0 12px;
+}
+
+/* ==========================================
+   HEADINGS H1-H6 — Forces override of inline spans
+========================================== */
+
+.rich-editor-content h1,
+.rich-editor-content h1 * {
+  margin: 28px 0 14px;
+  color: #0f172a !important;
+  font-size: 30px !important;
+  line-height: 1.25 !important;
+  font-weight: 800 !important;
+}
+
+.rich-editor-content h2,
+.rich-editor-content h2 * {
+  margin: 26px 0 12px;
+  color: #0f172a !important;
+  font-size: 24px !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+.rich-editor-content h3,
+.rich-editor-content h3 * {
+  margin: 22px 0 10px;
+  color: #0f172a !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+}
+
+.rich-editor-content h4,
+.rich-editor-content h4 * {
+  margin: 20px 0 10px;
+  color: #0f172a !important;
+  font-size: 17px !important;
+  line-height: 1.4 !important;
+  font-weight: 700 !important;
+}
+
+.rich-editor-content h5,
+.rich-editor-content h5 * {
+  margin: 18px 0 8px;
+  color: #0f172a !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+}
+
+.rich-editor-content h6,
+.rich-editor-content h6 * {
+  margin: 16px 0 8px;
+  color: #475569 !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* ==========================================
+   LISTS
+========================================== */
+
+.rich-editor-content ul,
+.rich-editor-content ol {
+  padding-left: 25px;
+  margin: 12px 0;
+}
+
+.rich-editor-content li {
+  margin-bottom: 5px;
+}
+
+/* ==========================================
+   LINKS
+========================================== */
+
+.rich-editor-content a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-decoration-color: #93c5fd;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.rich-editor-content a:hover {
+  color: #1d4ed8;
+  text-decoration-color: #2563eb;
+}
+
+/* ==========================================
+   BLOCKQUOTE
+========================================== */
+
+.rich-editor-content blockquote {
+  margin: 18px 0;
+  padding: 12px 16px;
+  border-left: 4px solid #6366f1;
+  background: #f5f3ff;
+  color: #475569;
+  font-style: italic;
+}
+
+/* ==========================================
+   CODE BLOCK
+========================================== */
+
+.rich-editor-content pre {
+  margin: 18px 0;
+  padding: 15px;
+  border-radius: 9px;
+  background: #0f172a;
+  color: #e2e8f0;
+  overflow-x: auto;
+  font-family: Consolas, monospace;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   LINK MODAL
+========================================== */
+
+.rich-link-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+.rich-link-modal {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+  animation: richLinkFadeIn 0.18s ease-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes richLinkFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.rich-link-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 18px;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.rich-link-modal-title svg {
+  color: #4f46e5;
+  font-size: 15px;
+}
+
+/* ==========================================
+   LINK FIELDS
+========================================== */
+
+.rich-link-field {
+  margin-bottom: 14px;
+}
+
+.rich-link-field label {
+  display: block;
+  margin-bottom: 6px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rich-link-field input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #dbe1ea;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #1e293b;
+  outline: none;
+  transition: 0.2s;
+}
+
+.rich-link-field input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* ==========================================
+   LINK TARGET OPTIONS
+========================================== */
+
+.rich-link-target {
+  margin: 16px 0;
+}
+
+.rich-link-target-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rich-link-target-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.rich-link-target-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 12px;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.rich-link-target-option:hover {
+  border-color: #c7d2fe;
+  background: #f8fafc;
+}
+
+.rich-link-target-option.active {
+  border-color: #4f46e5;
+  background: #eef2ff;
+}
+
+.rich-link-target-option input[type="radio"] {
+  margin-top: 2px;
+  accent-color: #4f46e5;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.rich-link-target-option > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rich-link-target-option strong {
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.rich-link-target-option span {
+  color: #94a3b8;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.rich-link-target-option.active strong {
+  color: #4338ca;
+}
+
+.rich-link-target-option.active span {
+  color: #6366f1;
+}
+
+/* ==========================================
+   NOFOLLOW INFO
+========================================== */
+
+.rich-link-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 9px;
+  color: #1e40af;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.rich-link-info-icon {
+  flex-shrink: 0;
+  font-size: 12px;
+  margin-top: 1px;
+}
+
+.rich-link-info code {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-family: Consolas, monospace;
+  font-size: 10.5px;
+}
+
+/* ==========================================
+   LINK PREVIEW
+========================================== */
+
+.rich-link-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0;
+  padding: 10px 12px;
+  background: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  border-radius: 9px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.rich-link-preview > span {
+  color: #64748b;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.rich-link-preview a {
+  color: #2563eb;
+  text-decoration: underline;
+  text-decoration-color: #93c5fd;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+/* ==========================================
+   LINK ACTIONS
+========================================== */
+
+.rich-link-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #eef2f7;
+}
+
+.rich-link-btn {
+  height: 38px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.rich-link-btn.cancel {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.rich-link-btn.cancel:hover {
+  background: #e2e8f0;
+}
+
+.rich-link-btn.insert {
+  background: #4f46e5;
+  color: #ffffff;
+}
+
+.rich-link-btn.insert:hover {
+  background: #4338ca;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 650px) {
+  .rich-editor-toolbar {
+    gap: 3px;
+  }
+
+  .rich-toolbar-divider {
+    display: none;
+  }
+
+  .rich-toolbar-btn {
+    min-width: 32px;
+    height: 30px;
+  }
+
+  .rich-editor-content {
+    min-height: 350px;
+    padding: 14px;
+  }
+
+  .rich-heading-select select {
+    min-width: 100px;
+    font-size: 11px;
+  }
+
+  .rich-link-target-options {
+    grid-template-columns: 1fr;
+  }
+
+  .rich-link-modal {
+    padding: 18px;
+  }
+}
