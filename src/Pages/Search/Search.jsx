@@ -190,12 +190,12 @@ const Search = () => {
             </span>
 
             <h1>
-              Search <span>IndiBlogHub</span>
+              Search <span>TrendBlogHub</span>
             </h1>
 
             <p>
               Find articles, ideas and stories from across
-              IndiBlogHub.
+              TrendBlogHub.
             </p>
 
             {/* Search Form */}

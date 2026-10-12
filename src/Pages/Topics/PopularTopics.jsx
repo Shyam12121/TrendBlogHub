@@ -118,7 +118,7 @@ const PopularTopics = () => {
           <h1>Popular Topics</h1>
 
           <p>
-            Explore trending topics across the IndiBlogHub publishing
+            Explore trending topics across the TrendBlogHub publishing
             network, organized by verified hubs and recent publications.
           </p>
 

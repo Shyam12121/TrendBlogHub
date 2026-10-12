@@ -5,7 +5,7 @@ import "./Publishers.css";
 
 const publishers = [
   {
-    name: "Team IndiBlogHub",
+    name: "Team TrendBlogHub",
     articles: 1098,
     image: "https://placehold.co/300x300/06364a/ffffff?text=iB.",
   },
@@ -77,7 +77,7 @@ const Publishers = () => {
           <h1>Browse Publishers</h1>
 
           <p>
-            Discover 314 verified publishers on IndiBlogHub across
+            Discover 314 verified publishers on TrendBlogHub across
             technology, health, travel, finance, business and more.
           </p>
 

@@ -33,18 +33,18 @@ const Footer = () => {
           <div className="footer-about">
 
             <h2 className="footer-logo">
-              INDI<span>BLOG</span>HUB.
+              Trend<span>BLOG</span>HUB.
             </h2>
 
             <p>
-              IndiBlogHub is an AI-powered content publishing platform helping
+              TrendBlogHub is an AI-powered content publishing platform helping
               creators, businesses and brands publish SEO-friendly articles
               with maximum online visibility.
             </p>
 
-            <a href="mailto:support@indibloghub.com">
+            <a href="mailto:support@trendbloghub.com">
               <FaEnvelope />
-              support@indibloghub.com
+              support@trendbloghub.com
             </a>
 
             <div className="footer-social">
@@ -224,7 +224,7 @@ const Footer = () => {
         <div className="footer-bottom">
 
           <p>
-            © 2026 <span>IndiBlogHub</span>. All Rights Reserved.
+            © 2026 <span>TrendBlogHub</span>. All Rights Reserved.
           </p>
 
         </div>

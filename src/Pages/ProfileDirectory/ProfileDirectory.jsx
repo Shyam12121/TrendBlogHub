@@ -124,7 +124,7 @@ const ProfileDirectory = () => {
             <h1>Authors</h1>
 
             <p>
-              Discover authors from the IndiBlogHub community.
+              Discover authors from the TrendBlogHub community.
             </p>
           </div>
 
