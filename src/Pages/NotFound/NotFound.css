@@ -1,5 +1,5 @@
 /* =========================================================
-   NOT FOUND PAGE
+   NOT FOUND PAGE — BLACK BACKGROUND
 ========================================================= */
 
 .notfound-page {
@@ -7,9 +7,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
-  background: #ffffff;
+  padding: 50px 20px;
+  background: #000000;
   width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow effect in background */
+
+.notfound-page::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(77, 110, 255, 0.15) 0%,
+    rgba(77, 110, 255, 0.05) 40%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .notfound-inner {
@@ -20,17 +42,19 @@
   text-align: center;
   max-width: 100%;
   width: 100%;
+  position: relative;
+  z-index: 2;
   animation: fadeInUp 0.6s ease;
 }
 
 /* =========================================================
-   FULL PAGE GIF
+   GIF
 ========================================================= */
 
 .notfound-gif {
   width: 100%;
-  max-width: 700px;
-  margin: 0 auto 30px;
+  max-width: 720px;
+  margin: 0 auto 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,6 +66,7 @@
   max-height: 60vh;
   object-fit: contain;
   border-radius: 12px;
+  display: block;
 }
 
 /* =========================================================
@@ -60,13 +85,13 @@
   font-weight: 700;
   text-decoration: none;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(77, 110, 255, 0.25);
+  box-shadow: 0 4px 20px rgba(77, 110, 255, 0.5);
 }
 
 .notfound-btn:hover {
   background: #3f5ee5;
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(77, 110, 255, 0.35);
+  box-shadow: 0 8px 30px rgba(77, 110, 255, 0.7);
   color: #ffffff !important;
 }
 
@@ -95,9 +120,14 @@
     padding: 30px 16px;
   }
 
+  .notfound-page::before {
+    width: 400px;
+    height: 400px;
+  }
+
   .notfound-gif {
     max-width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   .notfound-gif img {

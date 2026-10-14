@@ -8,7 +8,7 @@ const NotFound = () => {
 
       <div className="notfound-inner">
 
-        {/* FULL PAGE GIF */}
+        {/* GIF */}
         <div className="notfound-gif">
           <img src="/404.gif" alt="404 Not Found" />
         </div>
