@@ -505,11 +505,11 @@ const Privacy = () => {
                 </p>
 
                 <a
-                  href="mailto:support@trendbloghub.com"
+                  href="mailto:trendbloghub1@gmail.com"
                   className="privacy-contact-email"
                 >
                   <FaEnvelope />
-                  support@trendbloghub.com
+                  trendbloghub1@gmail.com
                 </a>
 
               </section>

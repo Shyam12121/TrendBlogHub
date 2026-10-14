@@ -44,7 +44,7 @@ const Contact = () => {
       "@type": "Organization",
       name: "TrendBlogHub",
       url: "https://trendbloghub.com/",
-      email: "support@trendbloghub.com",
+      email: "trendbloghub1@gmail.com",
     },
   };
 
@@ -189,8 +189,8 @@ const Contact = () => {
                 <div className="contact-email-box">
                   <span>Email</span>
 
-                  <a href="mailto:support@trendbloghub.com">
-                    support@trendbloghub.com
+                  <a href="mailto:trendbloghub1@gmail.com">
+                    trendbloghub1@gmail.com
                   </a>
                 </div>
 
@@ -252,7 +252,7 @@ const Contact = () => {
                 <div className="contact-email-box contact-email-muted">
                   <span>Publishing inquiries</span>
 
-                  <a href="mailto:support@trendbloghub.com">
+                  <a href="mailto:trendbloghub1@gmail.com">
                     Contact our team
                   </a>
                 </div>
@@ -283,7 +283,7 @@ const Contact = () => {
                 <div className="contact-email-box contact-email-muted">
                   <span>Business inquiries</span>
 
-                  <a href="mailto:support@trendbloghub.com">
+                  <a href="mailto:trendbloghub1@gmail.com">
                     Contact our team
                   </a>
                 </div>
@@ -323,7 +323,7 @@ const Contact = () => {
               </div>
 
               <a
-                href="mailto:support@trendbloghub.com"
+                href="mailto:trendbloghub1@gmail.com"
                 className="contact-message-button"
               >
                 Send Us an Email

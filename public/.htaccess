@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  
+  # Agar file ya folder exist karta hai, toh use waise hi serve karo
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-l
+  
+  # Warna sab kuch index.html par redirect kar do (React handle karega)
+  RewriteRule . /index.html [L]
+</IfModule>

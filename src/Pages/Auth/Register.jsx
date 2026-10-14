@@ -170,7 +170,7 @@ const Register = () => {
                   Terms of Service
                 </Link>{" "}
                 and{" "}
-                <Link to="/privacy" className="terms-link">
+                <Link to="/privacy-policy" className="terms-link">
                   Privacy Policy
                 </Link>
               </label>

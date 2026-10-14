@@ -42,9 +42,9 @@ const Footer = () => {
               with maximum online visibility.
             </p>
 
-            <a href="mailto:support@trendbloghub.com">
+            <a href="mailto:trendbloghub1@gmail.com">
               <FaEnvelope />
-              support@trendbloghub.com
+              trendbloghub1@gmail.com
             </a>
 
             <div className="footer-social">

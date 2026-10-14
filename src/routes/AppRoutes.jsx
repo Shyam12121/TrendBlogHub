@@ -54,6 +54,9 @@ import UserEditBlog from "../Pages/User/EditBlog/EditBlog";
 import Privacy from "../Pages/Privacy/Privacy";
 import CategoryDirectory from "../Pages/Categories/CategoryDirectory";
 
+// ✅ NAYA IMPORT — TERMS
+import Terms from "../Pages/Terms/Terms";
+
 // ==========================================
 // APP ROUTES
 // ==========================================
@@ -95,6 +98,9 @@ const AppRoutes = () => {
           <Route path="/contact-us" element={<Contact />} />
 
           <Route path="/privacy-policy" element={<Privacy />} />
+
+          {/* ✅ NAYA ROUTE — TERMS & CONDITIONS */}
+          <Route path="/terms" element={<Terms />} />
 
           <Route path="/topics" element={<PopularTopics />} />
 
@@ -151,7 +157,7 @@ const AppRoutes = () => {
         </Route>
 
         {/* =========================================
-            404
+            404 — HAMESHA SABSE LAST MEIN
         ========================================= */}
 
         <Route path="*" element={<NotFound />} />
