@@ -24,26 +24,23 @@
   animation: fadeInUp 0.6s ease;
 }
 
-/* Floating 404 */
+/* LOTTIE ANIMATION */
 
-.notfound-code {
-  margin: 0;
-  font-size: clamp(90px, 14vw, 150px);
-  line-height: 1;
-  font-weight: 900;
-  letter-spacing: -6px;
-  background: linear-gradient(135deg, #4d6eff 0%, #7c8cff 50%, #4d6eff 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: floatY 3s ease-in-out infinite, gradientShift 4s ease infinite;
+.notfound-lottie {
+  width: 280px;
+  height: 280px;
+  margin: 0 auto 10px;
+}
+
+.notfound-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* Heading */
 
 .notfound-title {
-  margin: 24px 0 12px;
+  margin: 16px 0 12px;
   font-size: 26px;
   font-weight: 700;
   color: #172033;
@@ -134,15 +131,6 @@
   }
 }
 
-@keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -160,6 +148,11 @@
   .notfound-page {
     min-height: 65vh;
     padding: 40px 16px;
+  }
+
+  .notfound-lottie {
+    width: 220px;
+    height: 220px;
   }
 
   .notfound-title {
