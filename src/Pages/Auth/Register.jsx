@@ -166,7 +166,7 @@ const Register = () => {
                 <input type="checkbox" required />
 
                 I agree to the{" "}
-                <Link to="/terms" className="terms-link">
+                <Link to="/terms-and-conditions" className="terms-link">
                   Terms of Service
                 </Link>{" "}
                 and{" "}

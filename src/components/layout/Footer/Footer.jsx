@@ -205,7 +205,7 @@ const Footer = () => {
               </li>
 
               <li>
-                <Link to="/terms">
+                <Link to="/terms-and-conditions">
                   <FaChevronRight />
                   Terms & Conditions
                 </Link>

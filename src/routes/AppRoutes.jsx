@@ -100,7 +100,7 @@ const AppRoutes = () => {
           <Route path="/privacy-policy" element={<Privacy />} />
 
           {/* ✅ NAYA ROUTE — TERMS & CONDITIONS */}
-          <Route path="/terms" element={<Terms />} />
+          <Route path="/terms-and-conditions" element={<Terms />} />
 
           <Route path="/topics" element={<PopularTopics />} />
 
