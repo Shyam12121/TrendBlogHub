@@ -7,61 +7,56 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(77, 110, 255, 0.08), transparent 35%),
-    radial-gradient(circle at 80% 80%, rgba(124, 140, 255, 0.08), transparent 35%),
-    #ffffff;
-  position: relative;
-  overflow: hidden;
+  padding: 40px 20px;
+  background: #ffffff;
   width: 100%;
 }
 
 .notfound-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: 520px;
-  position: relative;
-  z-index: 2;
+  max-width: 100%;
+  width: 100%;
   animation: fadeInUp 0.6s ease;
 }
 
-.notfound-code {
-  margin: 0 0 8px;
-  font-size: clamp(90px, 14vw, 150px);
-  line-height: 1;
-  font-weight: 900;
-  letter-spacing: -6px;
-  background: linear-gradient(135deg, #4d6eff 0%, #7c8cff 50%, #4d6eff 100%);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: floatY 3s ease-in-out infinite, gradientShift 4s ease infinite;
+/* =========================================================
+   FULL PAGE GIF
+========================================================= */
+
+.notfound-gif {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.notfound-title {
-  margin: 16px 0 12px;
-  font-size: 26px;
-  font-weight: 700;
-  color: #172033;
+.notfound-gif img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
-.notfound-desc {
-  margin: 0 0 30px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #687286;
-}
+/* =========================================================
+   BACK HOME BUTTON
+========================================================= */
 
 .notfound-btn {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 13px 26px;
+  padding: 13px 28px;
   background: #4d6eff;
   color: #ffffff !important;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -75,64 +70,42 @@
   color: #ffffff !important;
 }
 
-.notfound-dot {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(77, 110, 255, 0.12);
-  animation: floatY 5s ease-in-out infinite;
-}
-
-.notfound-dot.dot-1 { width: 90px; height: 90px; top: 15%; left: 12%; animation-delay: 0s; }
-.notfound-dot.dot-2 { width: 60px; height: 60px; bottom: 18%; right: 14%; animation-delay: 1s; }
-.notfound-dot.dot-3 { width: 40px; height: 40px; top: 25%; right: 20%; animation-delay: 2s; }
-.notfound-dot.dot-4 { width: 70px; height: 70px; bottom: 22%; left: 18%; animation-delay: 1.5s; }
-
-@keyframes floatY {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
-}
-
-@keyframes gradientShift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 600px) {
-  .notfound-page { min-height: 65vh; padding: 40px 16px; }
-  .notfound-title { font-size: 22px; }
-  .notfound-desc { font-size: 13px; }
-  .notfound-btn { padding: 12px 22px; font-size: 13px; }
-  .notfound-dot.dot-1,
-  .notfound-dot.dot-2 { width: 60px; height: 60px; }
-}
 /* =========================================================
-   GIF ANIMATION
+   ANIMATION
 ========================================================= */
 
-.notfound-gif {
-  width: 220px;
-  height: 220px;
-  margin: 0 auto 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.notfound-gif img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
+/* =========================================================
+   MOBILE
+========================================================= */
 
-/* Mobile */
 @media (max-width: 600px) {
+  .notfound-page {
+    min-height: 65vh;
+    padding: 30px 16px;
+  }
+
   .notfound-gif {
-    width: 180px;
-    height: 180px;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .notfound-gif img {
+    max-height: 45vh;
+  }
+
+  .notfound-btn {
+    padding: 12px 22px;
+    font-size: 13px;
   }
 }
