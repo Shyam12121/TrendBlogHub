@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-import Lottie from "lottie-react";
-import errorAnimation from "./404-animation.json";
 import "./NotFound.css";
 
 const NotFound = () => {
   return (
     <div className="notfound-page">
 
-      {/* Floating decorative dots */}
       <div className="notfound-dot dot-1"></div>
       <div className="notfound-dot dot-2"></div>
       <div className="notfound-dot dot-3"></div>
@@ -16,10 +13,7 @@ const NotFound = () => {
 
       <div className="notfound-inner">
 
-        {/* Lottie Animation */}
-        <div className="notfound-lottie">
-          <Lottie animationData={errorAnimation} loop={true} />
-        </div>
+        <h1 className="notfound-code">404</h1>
 
         <h2 className="notfound-title">Page Not Found</h2>
 
