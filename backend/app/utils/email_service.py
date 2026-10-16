@@ -1,4 +1,3 @@
-
 import os
 import smtplib
 import logging
@@ -27,9 +26,6 @@ def send_email(to_email: str, subject: str, body: str) -> None:
         
         return
 
-    # Safe diagnostics: never print the password.
-   
-
     if not all([host, username, password, from_email]):
         logger.error("SMTP configuration is incomplete; email not sent.")
         
@@ -46,8 +42,9 @@ def send_email(to_email: str, subject: str, body: str) -> None:
             with smtplib.SMTP_SSL(host, port, timeout=20) as server:
                 
                 server.login(username, password)
-                
+                print("hello")
                 server.send_message(message)
+                print("hello")
         else:
             with smtplib.SMTP(host, port, timeout=20) as server:
                 
@@ -56,8 +53,10 @@ def send_email(to_email: str, subject: str, body: str) -> None:
                 server.ehlo()
                 
                 server.login(username, password)
+                print("hello")
                 
                 server.send_message(message)
+                print("hello")
 
         logger.info("Email accepted by SMTP for %s", to_email)
         
@@ -96,6 +95,27 @@ def send_login_alert(to_email: str, name: str) -> None:
             "If this was you, no action is needed. If you do not "
             "recognize this activity, change your password and "
             "contact the site administrator.\n\n"
+            "TrendBlogHub Team"
+        ),
+    )
+
+
+# ======================================================
+# PASSWORD RESET OTP EMAIL
+# ======================================================
+
+def send_otp_email(to_email: str, otp: str) -> None:
+    
+
+    send_email(
+        to_email=to_email,
+        subject="Your Password Reset OTP — TrendBlogHub",
+        body=(
+            "Hello,\n\n"
+            f"Your OTP for password reset is: {otp}\n\n"
+            "This OTP is valid for 10 minutes. "
+            "Do not share it with anyone.\n\n"
+            "If you did not request this, please ignore this email.\n\n"
             "TrendBlogHub Team"
         ),
     )

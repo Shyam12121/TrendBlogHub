@@ -1,3 +1,5 @@
+from typing import Optional
+
 from pydantic import (
     BaseModel,
     EmailStr,
@@ -63,23 +65,23 @@ class ProfileResponse(BaseModel):
 
     email: EmailStr
 
-    first_name: str
+    first_name: Optional[str] = None
 
-    last_name: str
+    last_name: Optional[str] = None
 
-    username: str
+    username: Optional[str] = None
 
-    country: str
+    country: Optional[str] = None
 
-    location: str
+    location: Optional[str] = None
 
-    website: str
+    website: Optional[str] = None
 
-    bio: str
+    bio: Optional[str] = None
 
-    avatar: str
+    avatar: Optional[str] = None
 
-    cover_image: str
+    cover_image: Optional[str] = None
 
     role: str
 
@@ -100,23 +102,23 @@ class PublicProfileResponse(BaseModel):
 
     name: str
 
-    first_name: str
+    first_name: Optional[str] = None
 
-    last_name: str
+    last_name: Optional[str] = None
 
-    username: str
+    username: Optional[str] = None
 
-    country: str
+    country: Optional[str] = None
 
-    location: str
+    location: Optional[str] = None
 
-    website: str
+    website: Optional[str] = None
 
-    bio: str
+    bio: Optional[str] = None
 
-    avatar: str
+    avatar: Optional[str] = None
 
-    cover_image: str
+    cover_image: Optional[str] = None
 
     role: str
 
@@ -133,37 +135,37 @@ class PublicProfileResponse(BaseModel):
 
 class ProfileUpdate(BaseModel):
 
-    first_name: str = Field(
+    first_name: Optional[str] = Field(
         default=None,
         max_length=100,
     )
 
-    last_name: str = Field(
+    last_name: Optional[str] = Field(
         default=None,
         max_length=100,
     )
 
-    username: str = Field(
+    username: Optional[str] = Field(
         default=None,
         max_length=100,
     )
 
-    country: str = Field(
+    country: Optional[str] = Field(
         default=None,
         max_length=100,
     )
 
-    location: str = Field(
+    location: Optional[str] = Field(
         default=None,
         max_length=255,
     )
 
-    website: str = Field(
+    website: Optional[str] = Field(
         default=None,
         max_length=500,
     )
 
-    bio: str = Field(
+    bio: Optional[str] = Field(
         default=None,
         max_length=200,
     )
@@ -199,3 +201,38 @@ class UserRoleUpdate(BaseModel):
 class UserStatusUpdate(BaseModel):
 
     is_active: bool
+
+
+# ======================================================
+# FORGOT PASSWORD — request OTP
+# ======================================================
+
+class ForgotPasswordRequest(BaseModel):
+
+    email: EmailStr
+
+
+# ======================================================
+# VERIFY OTP
+# ======================================================
+
+class VerifyOtpRequest(BaseModel):
+
+    email: EmailStr
+
+    otp: str
+
+
+# ======================================================
+# RESET PASSWORD
+# ======================================================
+
+class ResetPasswordRequest(BaseModel):
+
+    email: EmailStr
+
+    otp: str
+
+    reset_token: str
+
+    new_password: str

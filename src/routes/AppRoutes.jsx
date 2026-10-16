@@ -28,6 +28,9 @@ import Publications from "../Pages/Publications/Publications";
 // AUTH
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
+import ForgotPassword from "../Pages/Auth/ForgotPassword";
+import VerifyOtp from "../Pages/Auth/VerifyOtp";
+import ResetPassword from "../Pages/Auth/ResetPassword";
 import NotFound from "../Pages/NotFound/NotFound";
 
 // ADMIN
@@ -94,6 +97,11 @@ const AppRoutes = () => {
 
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        {/* 🔐 PASSWORD RESET FLOW (3 steps) */}
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<VerifyOtp />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         {/* =========================================
             ADMIN
