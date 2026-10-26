@@ -75,7 +75,7 @@ const AppRoutes = () => {
           <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/profile" element={<ProfileDirectory />} />
           <Route path="/profile/:username" element={<PublicProfile />} />
-          <Route path="/categories" element={<CategoryDirectory />} />
+          <Route path="/category" element={<CategoryDirectory />} />
           <Route path="/category/:slug" element={<Category />} />
           <Route path="/category/:slug/:topic" element={<Category />} />
           <Route path="/search" element={<Search />} />

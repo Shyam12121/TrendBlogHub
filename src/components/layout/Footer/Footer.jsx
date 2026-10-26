@@ -170,7 +170,7 @@ const Footer = () => {
             <ul>
 
               <li>
-                <Link to="/categories">
+                <Link to="/category">
                   <FaChevronRight />
                   Categories
                 </Link>
