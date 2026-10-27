@@ -1,17 +1,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-
-  # 1. Sitemap aur Robots ko seedha Backend (FastAPI) par bhejein
-  #    (Yahan apna actual backend URL daalein)
-  RewriteRule ^sitemap\.xml$ https://api.trendbloghub.com/sitemap.xml [P,L]
-  RewriteRule ^robots\.txt$ https://api.trendbloghub.com/robots.txt [P,L]
-
-  # 2. Agar file ya folder exist karta hai, toh use waise hi serve karo
+  
+  # Agar file ya folder exist karta hai, toh use waise hi serve karo
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
-
-  # 3. Warna sab kuch index.html par redirect kar do (React handle karega)
+  
+  # Warna sab kuch index.html par redirect kar do (React handle karega)
   RewriteRule . /index.html [L]
 </IfModule>
