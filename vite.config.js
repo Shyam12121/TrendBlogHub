@@ -7,15 +7,15 @@ export default defineConfig({
   server: {
     proxy: {
       '/sitemap.xml': {
-        target: 'http://localhost:8000',
+        target: 'https://api.trendbloghub.com',
         changeOrigin: true,
       },
       '/robots.txt': {
-        target: 'http://localhost:8000',
+        target: 'https://api.trendbloghub.com',
         changeOrigin: true,
       },
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'https://api.trendbloghub.com',
         changeOrigin: true,
       },
     },
