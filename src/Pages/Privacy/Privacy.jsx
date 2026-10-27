@@ -1,5 +1,3 @@
-
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   FaShieldAlt,
@@ -15,29 +13,8 @@ import {
 import "./Privacy.css";
 import SEO from "../../components/SEO/SEO";
 
-<SEO
-  title="Privacy Policy – TrendBlogHub"
-  description="Read the TrendBlogHub Privacy Policy to learn how we handle information, cookies, analytics, advertising and third-party services."
-  keywords="trendbloghub privacy policy, data collection blog"
-  url="/privacy-policy/"
-/>
 const Privacy = () => {
   const lastUpdated = "September 27, 2026";
-
-  const privacySchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Privacy Policy – TrendBlogHub",
-    description:
-      "Read the TrendBlogHub Privacy Policy to learn how we handle information, cookies, analytics, advertising and third-party services.",
-    url: "https://trendbloghub.com/privacy-policy/",
-    dateModified: "2026-09-27",
-    publisher: {
-      "@type": "Organization",
-      name: "TrendBlogHub",
-      url: "https://trendbloghub.com/",
-    },
-  };
 
   return (
     <>
@@ -45,69 +22,39 @@ const Privacy = () => {
           SEO
       ===================================================== */}
 
-      <Helmet>
-        <title>Privacy Policy – TrendBlogHub</title>
-
-        <meta
-          name="description"
-          content="Read the TrendBlogHub Privacy Policy to learn how we handle information, cookies, analytics, advertising and third-party services."
-        />
-
-        <link
-          rel="canonical"
-          href="https://trendbloghub.com/privacy-policy/"
-        />
-
-        <meta
-          property="og:title"
-          content="Privacy Policy – TrendBlogHub"
-        />
-
-        <meta
-          property="og:description"
-          content="Learn how TrendBlogHub handles information, cookies, analytics, advertising and third-party services."
-        />
-
-        <meta property="og:type" content="website" />
-
-        <meta
-          property="og:url"
-          content="https://trendbloghub.com/privacy-policy/"
-        />
-
-        <meta name="twitter:card" content="summary" />
-
-        <meta
-          name="twitter:title"
-          content="Privacy Policy – TrendBlogHub"
-        />
-
-        <meta
-          name="twitter:description"
-          content="Learn how TrendBlogHub handles information, cookies, analytics, advertising and third-party services."
-        />
-
-        <script type="application/ld+json">
-          {JSON.stringify(privacySchema)}
-        </script>
-      </Helmet>
+      <SEO
+        title="Privacy Policy"
+        description="Read the TrendBlogHub Privacy Policy to learn how we handle information, cookies, analytics, advertising and third-party services."
+        keywords="trendbloghub privacy policy, data collection blog, cookie policy, advertising disclosure"
+        url="/privacy-policy/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Privacy Policy – TrendBlogHub",
+          description:
+            "Read the TrendBlogHub Privacy Policy to learn how we handle information, cookies, analytics, advertising and third-party services.",
+          url: "https://trendbloghub.com/privacy-policy/",
+          dateModified: "2026-09-27",
+          publisher: {
+            "@type": "Organization",
+            name: "TrendBlogHub",
+            url: "https://trendbloghub.com/",
+          },
+        }}
+      />
 
       <main className="privacy-page">
-
         {/* =====================================================
             HERO
         ===================================================== */}
 
         <section className="privacy-hero">
           <div className="privacy-container">
-
             <div className="privacy-hero-icon">
               <FaShieldAlt />
             </div>
 
-            <span className="privacy-eyebrow">
-              PRIVACY &amp; TRANSPARENCY
-            </span>
+            <span className="privacy-eyebrow">PRIVACY &amp; TRANSPARENCY</span>
 
             <h1>
               Privacy
@@ -122,7 +69,6 @@ const Privacy = () => {
             <div className="privacy-updated">
               Last Updated: <strong>{lastUpdated}</strong>
             </div>
-
           </div>
         </section>
 
@@ -132,13 +78,10 @@ const Privacy = () => {
 
         <section className="privacy-content-section">
           <div className="privacy-container privacy-layout">
-
             {/* SIDEBAR */}
 
             <aside className="privacy-sidebar">
-
               <div className="privacy-sidebar-card">
-
                 <span>ON THIS PAGE</span>
 
                 <nav>
@@ -156,15 +99,12 @@ const Privacy = () => {
                   <a href="#changes">Changes to This Privacy Policy</a>
                   <a href="#contact">Contact Us</a>
                 </nav>
-
               </div>
-
             </aside>
 
             {/* MAIN CONTENT */}
 
             <article className="privacy-content">
-
               <div className="privacy-intro">
                 <p>
                   At TrendBlogHub, we respect your privacy and aim to be
@@ -182,7 +122,6 @@ const Privacy = () => {
               {/* 1 */}
 
               <section id="information" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>01</span>
                   <h2>Information We May Collect</h2>
@@ -202,13 +141,11 @@ const Privacy = () => {
                   You can generally browse TrendBlogHub without creating an
                   account unless a particular feature requires one.
                 </p>
-
               </section>
 
               {/* 2 */}
 
               <section id="use" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>02</span>
                   <h2>How We Use Information</h2>
@@ -224,13 +161,11 @@ const Privacy = () => {
                   activity, display advertising, and comply with legal
                   obligations.
                 </p>
-
               </section>
 
               {/* 3 */}
 
               <section id="cookies" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>03</span>
                   <h2>Cookies</h2>
@@ -252,13 +187,11 @@ const Privacy = () => {
                   features may not function properly if required cookies are
                   disabled.
                 </p>
-
               </section>
 
               {/* 4 */}
 
               <section id="advertising" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>04</span>
                   <h2>Advertising</h2>
@@ -282,20 +215,17 @@ const Privacy = () => {
                   applicable, TrendBlogHub will provide the required privacy
                   and consent controls for visitors.
                 </p>
-
               </section>
 
               {/* 5 */}
 
               <section id="analytics" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>05</span>
                   <h2>Analytics</h2>
                 </div>
 
                 <div className="privacy-feature-row">
-
                   <div className="privacy-feature-icon">
                     <FaChartLine />
                   </div>
@@ -307,20 +237,17 @@ const Privacy = () => {
                     referral source, interaction information, and general
                     website performance information.
                   </p>
-
                 </div>
 
                 <p>
                   This helps us understand which content is useful and
                   improve the website.
                 </p>
-
               </section>
 
               {/* 6 */}
 
               <section id="contributors" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>06</span>
                   <h2>Contributor Information</h2>
@@ -345,13 +272,11 @@ const Privacy = () => {
                   Only information reasonably necessary for operating the
                   publishing platform is collected.
                 </p>
-
               </section>
 
               {/* 7 */}
 
               <section id="third-party" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>07</span>
                   <h2>Third-Party Services</h2>
@@ -367,20 +292,17 @@ const Privacy = () => {
                   Those services process information according to their own
                   privacy policies.
                 </p>
-
               </section>
 
               {/* 8 */}
 
               <section id="external" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>08</span>
                   <h2>External Websites</h2>
                 </div>
 
                 <div className="privacy-feature-row">
-
                   <div className="privacy-feature-icon">
                     <FaExternalLinkAlt />
                   </div>
@@ -392,15 +314,12 @@ const Privacy = () => {
                     privacy policies of any external websites they choose
                     to visit.
                   </p>
-
                 </div>
-
               </section>
 
               {/* 9 */}
 
               <section id="security" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>09</span>
                   <h2>Data Security</h2>
@@ -418,20 +337,17 @@ const Privacy = () => {
                   However, no internet transmission or storage system can be
                   guaranteed to be completely secure.
                 </p>
-
               </section>
 
               {/* 10 */}
 
               <section id="children" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>10</span>
                   <h2>Children’s Privacy</h2>
                 </div>
 
                 <div className="privacy-feature-row">
-
                   <div className="privacy-feature-icon">
                     <FaChild />
                   </div>
@@ -442,15 +358,12 @@ const Privacy = () => {
                     child has provided personal information to us without
                     appropriate authorization, please contact us.
                   </p>
-
                 </div>
-
               </section>
 
               {/* 11 */}
 
               <section id="rights" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>11</span>
                   <h2>Your Choices and Rights</h2>
@@ -467,13 +380,11 @@ const Privacy = () => {
                   Where legally required, we will provide appropriate
                   mechanisms for exercising applicable rights.
                 </p>
-
               </section>
 
               {/* 12 */}
 
               <section id="changes" className="privacy-section">
-
                 <div className="privacy-section-heading">
                   <span>12</span>
                   <h2>Changes to This Privacy Policy</h2>
@@ -485,37 +396,31 @@ const Privacy = () => {
                   requirements change.
                 </p>
 
-                <p>
-                  The latest version will be posted on this page.
-                </p>
-
+                <p>The latest version will be posted on this page.</p>
               </section>
 
               {/* 13 */}
 
-              <section id="contact" className="privacy-section privacy-contact-section">
-
+              <section
+                id="contact"
+                className="privacy-section privacy-contact-section"
+              >
                 <div className="privacy-section-heading">
                   <span>13</span>
                   <h2>Contact Us</h2>
                 </div>
 
-                <p>
-                  Questions about this Privacy Policy can be sent to:
-                </p>
+                <p>Questions about this Privacy Policy can be sent to:</p>
 
                 <a
-                  href="mailto:trendbloghub1@gmail.com"
+                  href="mailto:contact@trendbloghub.com"
                   className="privacy-contact-email"
                 >
                   <FaEnvelope />
-                  trendbloghub1@gmail.com
+                  contact@trendbloghub.com
                 </a>
-
               </section>
-
             </article>
-
           </div>
         </section>
 
@@ -525,7 +430,6 @@ const Privacy = () => {
 
         <section className="privacy-bottom">
           <div className="privacy-container">
-
             <h2>
               Have a question about
               <span> privacy?</span>
@@ -537,7 +441,6 @@ const Privacy = () => {
             </p>
 
             <div className="privacy-actions">
-
               <Link
                 to="/contact-us"
                 className="privacy-btn privacy-btn-primary"
@@ -553,16 +456,12 @@ const Privacy = () => {
                 About TrendBlogHub
                 <span>→</span>
               </Link>
-
             </div>
-
           </div>
         </section>
-
       </main>
     </>
   );
 };
 
 export default Privacy;
-

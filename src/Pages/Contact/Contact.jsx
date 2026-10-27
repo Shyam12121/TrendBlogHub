@@ -1,5 +1,3 @@
-
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   FaEnvelope,
@@ -12,106 +10,46 @@ import {
 import "./Contact.css";
 import SEO from "../../components/SEO/SEO";
 
-<SEO
-  title="Contact TrendBlogHub – Questions, Corrections & Business Inquiries"
-  description="Contact TrendBlogHub for article corrections, content questions, publishing inquiries, partnerships, advertising and general support."
-  keywords="contact trendbloghub, report article error, business inquiry blog"
-  url="/contact-us/"
-  schema={{
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    url: "https://trendbloghub.com/contact-us/",
-    mainEntity: {
-      "@type": "Organization",
-      name: "TrendBlogHub",
-      contactPoint: {
-        "@type": "ContactPoint",
-        email: "contact@trendbloghub.com",
-        contactType: "customer support",
-      },
-    },
-  }}
-/>
 const Contact = () => {
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: "Contact TrendBlogHub",
-    description:
-      "Contact TrendBlogHub for article corrections, content questions, publishing inquiries, partnerships, advertising and general support.",
-    url: "https://trendbloghub.com/contact-us/",
-    mainEntity: {
-      "@type": "Organization",
-      name: "TrendBlogHub",
-      url: "https://trendbloghub.com/",
-      email: "trendbloghub1@gmail.com",
-    },
-  };
-
   return (
     <>
       {/* =====================================================
           SEO
       ===================================================== */}
 
-      <Helmet>
-        <title>
-          Contact TrendBlogHub – Questions, Corrections & Business Inquiries
-        </title>
-
-        <meta
-          name="description"
-          content="Contact TrendBlogHub for article corrections, content questions, publishing inquiries, partnerships, advertising and general support."
-        />
-
-        <link
-          rel="canonical"
-          href="https://trendbloghub.com/contact-us/"
-        />
-
-        <meta
-          property="og:title"
-          content="Contact TrendBlogHub – Questions, Corrections & Business Inquiries"
-        />
-
-        <meta
-          property="og:description"
-          content="Contact TrendBlogHub for article corrections, content questions, publishing inquiries, partnerships, advertising and general support."
-        />
-
-        <meta property="og:type" content="website" />
-
-        <meta
-          property="og:url"
-          content="https://trendbloghub.com/contact-us/"
-        />
-
-        <meta name="twitter:card" content="summary" />
-
-        <meta
-          name="twitter:title"
-          content="Contact TrendBlogHub – Questions, Corrections & Business Inquiries"
-        />
-
-        <meta
-          name="twitter:description"
-          content="Contact TrendBlogHub for questions, article corrections, publishing inquiries, partnerships and general support."
-        />
-
-        <script type="application/ld+json">
-          {JSON.stringify(contactSchema)}
-        </script>
-      </Helmet>
+      <SEO
+        title="Contact TrendBlogHub – Questions, Corrections & Business Inquiries"
+        description="Contact TrendBlogHub for article corrections, content questions, publishing inquiries, partnerships, advertising and general support."
+        keywords="contact trendbloghub, report article error, business inquiry blog, publishing questions"
+        url="/contact-us/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact TrendBlogHub",
+          url: "https://trendbloghub.com/contact-us/",
+          description:
+            "Contact TrendBlogHub for article corrections, content questions, publishing inquiries, partnerships, advertising and general support.",
+          mainEntity: {
+            "@type": "Organization",
+            name: "TrendBlogHub",
+            url: "https://trendbloghub.com/",
+            email: "contact@trendbloghub.com",
+            contactPoint: {
+              "@type": "ContactPoint",
+              email: "contact@trendbloghub.com",
+              contactType: "customer support",
+            },
+          },
+        }}
+      />
 
       <main className="contact-page">
-
         {/* =====================================================
             HERO
         ===================================================== */}
 
         <section className="contact-hero">
           <div className="contact-container">
-
             <span className="contact-eyebrow">
               <FaEnvelope />
               CONTACT TRENDBLOGHUB
@@ -127,7 +65,6 @@ const Contact = () => {
               suggest a topic, or interested in publishing or discussing
               a business partnership?
             </p>
-
           </div>
         </section>
 
@@ -137,10 +74,7 @@ const Contact = () => {
 
         <section className="contact-intro-section">
           <div className="contact-container contact-intro-container">
-
-            <span className="contact-label">
-              GET IN TOUCH
-            </span>
+            <span className="contact-label">GET IN TOUCH</span>
 
             <h2>
               How can we
@@ -153,7 +87,6 @@ const Contact = () => {
               or discussing a business partnership? We’re happy to hear
               from you.
             </p>
-
           </div>
         </section>
 
@@ -163,20 +96,15 @@ const Contact = () => {
 
         <section className="contact-options-section">
           <div className="contact-container">
-
             <div className="contact-options-grid">
-
               {/* GENERAL QUESTIONS */}
 
               <article className="contact-card">
-
                 <div className="contact-card-icon">
                   <FaEnvelope />
                 </div>
 
-                <span className="contact-card-number">
-                  01
-                </span>
+                <span className="contact-card-number">01</span>
 
                 <h2>General Questions</h2>
 
@@ -189,24 +117,20 @@ const Contact = () => {
                 <div className="contact-email-box">
                   <span>Email</span>
 
-                  <a href="mailto:trendbloghub1@gmail.com">
-                    trendbloghub1@gmail.com
+                  <a href="mailto:contact@trendbloghub.com">
+                    contact@trendbloghub.com
                   </a>
                 </div>
-
               </article>
 
               {/* ARTICLE ISSUE */}
 
               <article className="contact-card">
-
                 <div className="contact-card-icon">
                   <FaExclamationCircle />
                 </div>
 
-                <span className="contact-card-number">
-                  02
-                </span>
+                <span className="contact-card-number">02</span>
 
                 <h2>Report an Article Issue</h2>
 
@@ -226,20 +150,16 @@ const Contact = () => {
                     <li>Additional supporting information</li>
                   </ul>
                 </div>
-
               </article>
 
               {/* PUBLISHING */}
 
               <article className="contact-card">
-
                 <div className="contact-card-icon">
                   <FaPenNib />
                 </div>
 
-                <span className="contact-card-number">
-                  03
-                </span>
+                <span className="contact-card-number">03</span>
 
                 <h2>Publishing Questions</h2>
 
@@ -252,24 +172,20 @@ const Contact = () => {
                 <div className="contact-email-box contact-email-muted">
                   <span>Publishing inquiries</span>
 
-                  <a href="mailto:trendbloghub1@gmail.com">
+                  <a href="mailto:contact@trendbloghub.com">
                     Contact our team
                   </a>
                 </div>
-
               </article>
 
               {/* BUSINESS */}
 
               <article className="contact-card">
-
                 <div className="contact-card-icon">
                   <FaHandshake />
                 </div>
 
-                <span className="contact-card-number">
-                  04
-                </span>
+                <span className="contact-card-number">04</span>
 
                 <h2>Business &amp; Partnership Inquiries</h2>
 
@@ -283,15 +199,12 @@ const Contact = () => {
                 <div className="contact-email-box contact-email-muted">
                   <span>Business inquiries</span>
 
-                  <a href="mailto:trendbloghub1@gmail.com">
+                  <a href="mailto:contact@trendbloghub.com">
                     Contact our team
                   </a>
                 </div>
-
               </article>
-
             </div>
-
           </div>
         </section>
 
@@ -301,37 +214,27 @@ const Contact = () => {
 
         <section className="contact-message-section">
           <div className="contact-container">
-
             <div className="contact-message-box">
-
               <div className="contact-message-content">
+                <span className="contact-label">HAVE SOMETHING TO SHARE?</span>
 
-                <span className="contact-label">
-                  HAVE SOMETHING TO SHARE?
-                </span>
-
-                <h2>
-                  We’re listening.
-                </h2>
+                <h2>We’re listening.</h2>
 
                 <p>
                   Whether you’re a reader, contributor, business, or simply
                   someone with an interesting idea to share, we look forward
                   to hearing from you.
                 </p>
-
               </div>
 
               <a
-                href="mailto:trendbloghub1@gmail.com"
+                href="mailto:contact@trendbloghub.com"
                 className="contact-message-button"
               >
                 Send Us an Email
                 <FaArrowRight />
               </a>
-
             </div>
-
           </div>
         </section>
 
@@ -341,32 +244,20 @@ const Contact = () => {
 
         <section className="contact-thankyou">
           <div className="contact-container">
-
-            <p>
-              Thank you for your interest in TrendBlogHub.
-            </p>
+            <p>Thank you for your interest in TrendBlogHub.</p>
 
             <div className="contact-links">
-
-              <Link to="/about-us">
-                About TrendBlogHub
-              </Link>
+              <Link to="/about-us">About TrendBlogHub</Link>
 
               <span>•</span>
 
-              <Link to="/publications">
-                Explore Publications
-              </Link>
-
+              <Link to="/publications">Explore Publications</Link>
             </div>
-
           </div>
         </section>
-
       </main>
     </>
   );
 };
 
 export default Contact;
-

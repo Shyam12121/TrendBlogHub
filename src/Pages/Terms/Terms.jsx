@@ -1,26 +1,11 @@
-import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { FaFileContract, FaEnvelope } from "react-icons/fa";
 
 import "./Terms.css";
+import SEO from "../../components/SEO/SEO";
 
 const Terms = () => {
   const lastUpdated = "October 14, 2026";
-
-  const termsSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Terms & Conditions – TrendBlogHub",
-    description:
-      "Read the TrendBlogHub Terms & Conditions to understand the rules, guidelines and policies for using our website and services.",
-    url: "https://trendbloghub.com/terms-and-conditions/",
-    dateModified: "2026-10-14",
-    publisher: {
-      "@type": "Organization",
-      name: "TrendBlogHub",
-      url: "https://trendbloghub.com/",
-    },
-  };
 
   return (
     <>
@@ -28,66 +13,39 @@ const Terms = () => {
           SEO
       ===================================================== */}
 
-      <Helmet>
-        <title>Terms &amp; Conditions – TrendBlogHub</title>
-
-        <meta
-          name="description"
-          content="Read the TrendBlogHub Terms & Conditions to understand the rules, guidelines and policies for using our website and services."
-        />
-
-        <link
-          rel="canonical"
-          href="https://trendbloghub.com/terms-and-conditions/"
-        />
-
-        <meta property="og:title" content="Terms & Conditions – TrendBlogHub" />
-
-        <meta
-          property="og:description"
-          content="Understand the rules, guidelines and policies for using TrendBlogHub."
-        />
-
-        <meta property="og:type" content="website" />
-
-        <meta
-          property="og:url"
-          content="https://trendbloghub.com/terms-and-conditions/"
-        />
-
-        <meta name="twitter:card" content="summary" />
-
-        <meta
-          name="twitter:title"
-          content="Terms & Conditions – TrendBlogHub"
-        />
-
-        <meta
-          name="twitter:description"
-          content="Understand the rules, guidelines and policies for using TrendBlogHub."
-        />
-
-        <script type="application/ld+json">
-          {JSON.stringify(termsSchema)}
-        </script>
-      </Helmet>
+      <SEO
+        title="Terms & Conditions"
+        description="Read the TrendBlogHub Terms & Conditions to understand the rules, guidelines and policies for using our website and services."
+        keywords="trendbloghub terms, terms and conditions, user agreement, website rules"
+        url="/terms-and-conditions/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Terms & Conditions – TrendBlogHub",
+          description:
+            "Read the TrendBlogHub Terms & Conditions to understand the rules, guidelines and policies for using our website and services.",
+          url: "https://trendbloghub.com/terms-and-conditions/",
+          dateModified: "2026-10-14",
+          publisher: {
+            "@type": "Organization",
+            name: "TrendBlogHub",
+            url: "https://trendbloghub.com/",
+          },
+        }}
+      />
 
       <main className="terms-page">
-
         {/* =====================================================
             HERO
         ===================================================== */}
 
         <section className="terms-hero">
           <div className="terms-container">
-
             <div className="terms-hero-icon">
               <FaFileContract />
             </div>
 
-            <span className="terms-eyebrow">
-              LEGAL &amp; POLICIES
-            </span>
+            <span className="terms-eyebrow">LEGAL &amp; POLICIES</span>
 
             <h1>
               Terms &amp;
@@ -103,7 +61,6 @@ const Terms = () => {
             <div className="terms-updated">
               Last Updated: <strong>{lastUpdated}</strong>
             </div>
-
           </div>
         </section>
 
@@ -113,13 +70,10 @@ const Terms = () => {
 
         <section className="terms-content-section">
           <div className="terms-container terms-layout">
-
             {/* SIDEBAR */}
 
             <aside className="terms-sidebar">
-
               <div className="terms-sidebar-card">
-
                 <span>ON THIS PAGE</span>
 
                 <nav>
@@ -138,15 +92,12 @@ const Terms = () => {
                   <a href="#law">Governing Law</a>
                   <a href="#contact">Contact Us</a>
                 </nav>
-
               </div>
-
             </aside>
 
             {/* MAIN CONTENT */}
 
             <article className="terms-content">
-
               <div className="terms-intro">
                 <p>
                   Welcome to TrendBlogHub. These Terms &amp; Conditions
@@ -208,11 +159,25 @@ const Terms = () => {
                 </p>
 
                 <ul>
-                  <li>Provide accurate, current, and complete information during registration.</li>
-                  <li>Maintain the security of your password and account credentials.</li>
-                  <li>Promptly update any information that becomes outdated.</li>
-                  <li>Accept full responsibility for all activities that occur under your account.</li>
-                  <li>Notify us immediately of any unauthorized use of your account.</li>
+                  <li>
+                    Provide accurate, current, and complete information during
+                    registration.
+                  </li>
+                  <li>
+                    Maintain the security of your password and account
+                    credentials.
+                  </li>
+                  <li>
+                    Promptly update any information that becomes outdated.
+                  </li>
+                  <li>
+                    Accept full responsibility for all activities that occur
+                    under your account.
+                  </li>
+                  <li>
+                    Notify us immediately of any unauthorized use of your
+                    account.
+                  </li>
                 </ul>
               </section>
 
@@ -237,10 +202,18 @@ const Terms = () => {
                 </p>
 
                 <ul>
-                  <li>Is unlawful, defamatory, abusive, hateful, or discriminatory.</li>
-                  <li>Infringes any copyright, trademark, or intellectual property rights.</li>
+                  <li>
+                    Is unlawful, defamatory, abusive, hateful, or
+                    discriminatory.
+                  </li>
+                  <li>
+                    Infringes any copyright, trademark, or intellectual
+                    property rights.
+                  </li>
                   <li>Contains viruses, malware, or harmful code.</li>
-                  <li>Constitutes spam, phishing, or unauthorized advertising.</li>
+                  <li>
+                    Constitutes spam, phishing, or unauthorized advertising.
+                  </li>
                   <li>Violates the privacy of any third party.</li>
                 </ul>
               </section>
@@ -274,10 +247,19 @@ const Terms = () => {
                 <p>You agree not to:</p>
 
                 <ul>
-                  <li>Use the website for any illegal or unauthorized purpose.</li>
-                  <li>Attempt to gain unauthorized access to our servers or databases.</li>
-                  <li>Use bots, scrapers, or automated tools to extract data.</li>
-                  <li>Interfere with or disrupt the website's functionality.</li>
+                  <li>
+                    Use the website for any illegal or unauthorized purpose.
+                  </li>
+                  <li>
+                    Attempt to gain unauthorized access to our servers or
+                    databases.
+                  </li>
+                  <li>
+                    Use bots, scrapers, or automated tools to extract data.
+                  </li>
+                  <li>
+                    Interfere with or disrupt the website's functionality.
+                  </li>
                   <li>Impersonate any person or entity.</li>
                 </ul>
               </section>
@@ -310,8 +292,8 @@ const Terms = () => {
                 <p>
                   If you believe that any content on TrendBlogHub infringes
                   your copyright, please contact us at{" "}
-                  <a href="mailto:trendbloghub1@gmail.com">
-                    trendbloghub1@gmail.com
+                  <a href="mailto:contact@trendbloghub.com">
+                    contact@trendbloghub.com
                   </a>{" "}
                   with the details of the alleged infringement. We will
                   respond promptly and take appropriate action.
@@ -417,16 +399,14 @@ const Terms = () => {
                 </p>
 
                 <a
-                  href="mailto:trendbloghub1@gmail.com"
+                  href="mailto:contact@trendbloghub.com"
                   className="terms-contact-email"
                 >
                   <FaEnvelope />
-                  trendbloghub1@gmail.com
+                  contact@trendbloghub.com
                 </a>
               </section>
-
             </article>
-
           </div>
         </section>
 
@@ -436,7 +416,6 @@ const Terms = () => {
 
         <section className="terms-bottom">
           <div className="terms-container">
-
             <h2>
               Have a question about
               <span> our terms?</span>
@@ -448,11 +427,7 @@ const Terms = () => {
             </p>
 
             <div className="terms-actions">
-
-              <Link
-                to="/contact-us"
-                className="terms-btn terms-btn-primary"
-              >
+              <Link to="/contact-us" className="terms-btn terms-btn-primary">
                 Contact Us
                 <span>→</span>
               </Link>
@@ -464,12 +439,9 @@ const Terms = () => {
                 Privacy Policy
                 <span>→</span>
               </Link>
-
             </div>
-
           </div>
         </section>
-
       </main>
     </>
   );

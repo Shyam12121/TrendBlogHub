@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import { FaArrowRight, FaChevronRight } from "react-icons/fa";
 
 import categories from "../../data/categories";
+import SEO from "../../components/SEO/SEO";
 
 import "./category.css";
 
@@ -10,89 +10,86 @@ const CategoryDirectory = () => {
   const categoryList = Object.values(categories);
 
   return (
-    <main className="category-directory-page">
+    <>
+      <SEO
+        title="All Categories – Explore Topics"
+        description="Browse all TrendBlogHub categories: Technology, Health, Business, Finance, Education, Travel, Lifestyle, Entertainment and more."
+        keywords="TrendBlogHub categories, blog topics, technology, health, business, finance, education, travel, lifestyle, entertainment"
+        url="/categories/"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "All Categories – TrendBlogHub",
+          url: "https://trendbloghub.com/categories/",
+          description:
+            "Browse all TrendBlogHub categories across technology, health, business, finance, education, travel, lifestyle, entertainment and more.",
+          isPartOf: {
+            "@type": "WebSite",
+            name: "TrendBlogHub",
+            url: "https://trendbloghub.com/",
+          },
+        }}
+      />
 
-      {/* ==========================================
-          SEO
-      ========================================== */}
+      <main className="category-directory-page">
+        {/* ==========================================
+            HERO
+        ========================================== */}
 
-      <Helmet>
-        <title>All Categories – Explore Topics | TrendBlogHub</title>
-        <meta
-          name="description"
-          content="Browse all TrendBlogHub categories: Technology, Health, Business, Finance, Education, Travel, Lifestyle, Entertainment and more."
-        />
-        <link
-          rel="canonical"
-          href="https://trendbloghub.com/categories/"
-        />
-      </Helmet>
+        <section className="category-directory-hero">
+          <div className="category-container">
+            <h1>Explore All Categories</h1>
 
-      {/* ==========================================
-          HERO
-      ========================================== */}
+            <p>
+              Browse articles and publications across all our categories.
+              From technology and health to business, finance, education,
+              travel, lifestyle, and more — find what you're looking for.
+            </p>
 
-      <section className="category-directory-hero">
-        <div className="category-container">
-
-          <h1>Explore All Categories</h1>
-
-          <p>
-            Browse articles and publications across all our categories.
-            From technology and health to business, finance, education,
-            travel, lifestyle, and more — find what you're looking for.
-          </p>
-
-          <div className="category-breadcrumb">
-            <Link to="/">Home</Link>
-            <FaChevronRight />
-            <span>Categories</span>
+            <div className="category-breadcrumb">
+              <Link to="/">Home</Link>
+              <FaChevronRight />
+              <span>Categories</span>
+            </div>
           </div>
+        </section>
 
-        </div>
-      </section>
+        {/* ==========================================
+            CATEGORY GRID
+        ========================================== */}
 
-      {/* ==========================================
-          CATEGORY GRID
-      ========================================== */}
+        <section className="category-directory-content">
+          <div className="category-container">
+            <div className="category-directory-grid">
+              {categoryList.map((cat) => {
+                const Icon = cat.icon;
 
-      <section className="category-directory-content">
-        <div className="category-container">
+                return (
+                  <Link
+                    key={cat.slug}
+                    to={`/category/${cat.slug}`}
+                    className="category-directory-card"
+                  >
+                    <div className="category-directory-icon">
+                      <Icon />
+                    </div>
 
-          <div className="category-directory-grid">
+                    <h3>{cat.name}</h3>
 
-            {categoryList.map((cat) => {
+                    <p>{cat.description}</p>
 
-              const Icon = cat.icon;
-
-              return (
-                <Link
-                  key={cat.slug}
-                  to={`/category/${cat.slug}`}
-                  className="category-directory-card"
-                >
-                  <div className="category-directory-icon">
-                    <Icon />
-                  </div>
-
-                  <h3>{cat.name}</h3>
-
-                  <p>{cat.description}</p>
-
-                  <span className="category-directory-link">
-                    Explore
-                    <FaArrowRight />
-                  </span>
-                </Link>
-              );
-            })}
-
+                    <span className="category-directory-link">
+                      Explore
+                      <FaArrowRight />
+                    </span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
-
-        </div>
-      </section>
-
-    </main>
+        </section>
+      </main>
+    </>
   );
 };
 

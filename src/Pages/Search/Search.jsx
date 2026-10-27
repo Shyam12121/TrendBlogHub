@@ -10,17 +10,10 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
+import SEO from "../../components/SEO/SEO";
 import "./Search.css";
-const API_URL = import.meta.env.VITE_API_URL;
-// ==========================================
-// API URL
-// ==========================================
 
-// const API_URL =
-//   window.location.hostname === "localhost" ||
-//   window.location.hostname === "127.0.0.1"
-//     ? "http://127.0.0.1:8000"
-//     : "http://192.168.29.233:8000";
+const API_URL = import.meta.env.VITE_API_URL;
 
 // ==========================================
 // SEARCH PAGE
@@ -57,10 +50,7 @@ const Search = () => {
         setBlogs(data);
       } catch (err) {
         console.error("Search blogs error:", err);
-
-        setError(
-          "Unable to load blogs right now. Please try again."
-        );
+        setError("Unable to load blogs right now. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -75,7 +65,6 @@ const Search = () => {
 
   useEffect(() => {
     const query = searchParams.get("q") || "";
-
     setInputValue(query);
     setSearchQuery(query);
   }, [searchParams]);
@@ -86,7 +75,6 @@ const Search = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-
     const query = inputValue.trim();
 
     if (!query) {
@@ -94,9 +82,7 @@ const Search = () => {
       return;
     }
 
-    setSearchParams({
-      q: query,
-    });
+    setSearchParams({ q: query });
   };
 
   // ==========================================
@@ -115,21 +101,14 @@ const Search = () => {
   const filteredBlogs = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
 
-    if (!query) {
-      return [];
-    }
+    if (!query) return [];
 
     return blogs.filter((blog) => {
       const title = String(blog.title || "").toLowerCase();
-
       const excerpt = String(blog.excerpt || "").toLowerCase();
-
       const content = String(blog.content || "").toLowerCase();
-
       const category = String(blog.category || "").toLowerCase();
-
       const slug = String(blog.slug || "").toLowerCase();
-
       const author =
         typeof blog.author === "object"
           ? String(blog.author?.name || "").toLowerCase()
@@ -150,21 +129,14 @@ const Search = () => {
   // HELPERS
   // ==========================================
 
-  const getBlogImage = (blog) => {
-    return (
-      blog.featured_image ||
-      blog.featuredImage ||
-      blog.image ||
-      ""
-    );
-  };
+  const getBlogImage = (blog) =>
+    blog.featured_image || blog.featuredImage || blog.image || "";
 
   const getAuthorName = (blog) => {
     if (typeof blog.author === "object") {
-      return blog.author?.name || "IndiBlogHub Author";
+      return blog.author?.name || "TrendBlogHub Author";
     }
-
-    return blog.author || "IndiBlogHub Author";
+    return blog.author || "TrendBlogHub Author";
   };
 
   // ==========================================
@@ -172,173 +144,138 @@ const Search = () => {
   // ==========================================
 
   return (
-    <main className="search-page">
+    <>
+      <SEO
+        title={
+          searchQuery
+            ? `Search Results for "${searchQuery}"`
+            : "Search TrendBlogHub"
+        }
+        description={
+          searchQuery
+            ? `Search results for "${searchQuery}" on TrendBlogHub. Find relevant articles, ideas and stories.`
+            : "Search articles, ideas and stories across TrendBlogHub."
+        }
+        url={searchQuery ? `/search?q=${encodeURIComponent(searchQuery)}` : "/search"}
+        noindex={true}
+      />
 
-      {/* ========================================
-          HERO
-      ======================================== */}
+      <main className="search-page">
+        {/* ========================================
+            HERO
+        ======================================== */}
 
-      <section className="search-hero">
+        <section className="search-hero">
+          <div className="container">
+            <div className="search-hero-content">
+              <span className="search-eyebrow">
+                <FaSearch />
+                DISCOVER CONTENT
+              </span>
 
-        <div className="container">
-
-          <div className="search-hero-content">
-
-            <span className="search-eyebrow">
-              <FaSearch />
-              DISCOVER CONTENT
-            </span>
-
-            <h1>
-              Search <span>TrendBlogHub</span>
-            </h1>
-
-            <p>
-              Find articles, ideas and stories from across
-              TrendBlogHub.
-            </p>
-
-            {/* Search Form */}
-
-            <form
-              className="search-form"
-              onSubmit={handleSearch}
-            >
-
-              <div className="search-input-wrapper">
-
-                <FaSearch className="search-input-icon" />
-
-                <input
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Search blogs, topics, categories..."
-                  aria-label="Search blogs"
-                />
-
-                {inputValue && (
-                  <button
-                    type="button"
-                    className="search-clear"
-                    onClick={clearSearch}
-                    aria-label="Clear search"
-                  >
-                    <FaTimes />
-                  </button>
-                )}
-
-              </div>
-
-              <button
-                type="submit"
-                className="search-submit"
-              >
-                Search
-                <FaArrowRight />
-              </button>
-
-            </form>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ========================================
-          RESULTS
-      ======================================== */}
-
-      <section className="search-results">
-
-        <div className="container">
-
-          {/* Loading */}
-
-          {loading && (
-            <div className="search-state">
-
-              <FaSpinner className="search-spinner" />
-
-              <h3>Loading blogs...</h3>
+              <h1>
+                Search <span>TrendBlogHub</span>
+              </h1>
 
               <p>
-                Finding the latest content for you.
+                Find articles, ideas and stories from across TrendBlogHub.
               </p>
 
+              {/* Search Form */}
+
+              <form className="search-form" onSubmit={handleSearch}>
+                <div className="search-input-wrapper">
+                  <FaSearch className="search-input-icon" />
+
+                  <input
+                    type="text"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder="Search blogs, topics, categories..."
+                    aria-label="Search blogs"
+                  />
+
+                  {inputValue && (
+                    <button
+                      type="button"
+                      className="search-clear"
+                      onClick={clearSearch}
+                      aria-label="Clear search"
+                    >
+                      <FaTimes />
+                    </button>
+                  )}
+                </div>
+
+                <button type="submit" className="search-submit">
+                  Search
+                  <FaArrowRight />
+                </button>
+              </form>
             </div>
-          )}
+          </div>
+        </section>
 
-          {/* Error */}
+        {/* ========================================
+            RESULTS
+        ======================================== */}
 
-          {!loading && error && (
-            <div className="search-state search-error">
+        <section className="search-results">
+          <div className="container">
+            {/* Loading */}
 
-              <FaFileAlt />
-
-              <h3>Something went wrong</h3>
-
-              <p>{error}</p>
-
-            </div>
-          )}
-
-          {/* No Search Yet */}
-
-          {!loading &&
-            !error &&
-            !searchQuery && (
+            {loading && (
               <div className="search-state">
-
-                <FaSearch />
-
-                <h3>Start searching</h3>
-
-                <p>
-                  Enter a keyword above to discover blogs.
-                </p>
-
+                <FaSpinner className="search-spinner" />
+                <h3>Loading blogs...</h3>
+                <p>Finding the latest content for you.</p>
               </div>
             )}
 
-          {/* Search Results */}
+            {/* Error */}
 
-          {!loading &&
-            !error &&
-            searchQuery && (
+            {!loading && error && (
+              <div className="search-state search-error">
+                <FaFileAlt />
+                <h3>Something went wrong</h3>
+                <p>{error}</p>
+              </div>
+            )}
+
+            {/* No Search Yet */}
+
+            {!loading && !error && !searchQuery && (
+              <div className="search-state">
+                <FaSearch />
+                <h3>Start searching</h3>
+                <p>Enter a keyword above to discover blogs.</p>
+              </div>
+            )}
+
+            {/* Search Results */}
+
+            {!loading && !error && searchQuery && (
               <>
                 <div className="results-heading">
-
                   <div>
                     <span>SEARCH RESULTS</span>
-
                     <h2>
-                      Results for{" "}
-                      <strong>"{searchQuery}"</strong>
+                      Results for <strong>"{searchQuery}"</strong>
                     </h2>
                   </div>
 
                   <div className="results-count">
                     {filteredBlogs.length}{" "}
-                    {filteredBlogs.length === 1
-                      ? "result"
-                      : "results"}
+                    {filteredBlogs.length === 1 ? "result" : "results"}
                   </div>
-
                 </div>
 
                 {/* No Results */}
 
                 {filteredBlogs.length === 0 && (
                   <div className="search-state no-results">
-
                     <FaSearch />
-
-                    <h3>
-                      No blogs found
-                    </h3>
-
+                    <h3>No blogs found</h3>
                     <p>
                       We couldn't find anything matching{" "}
                       <strong>"{searchQuery}"</strong>.
@@ -351,7 +288,6 @@ const Search = () => {
                     >
                       Try another search
                     </button>
-
                   </div>
                 )}
 
@@ -359,27 +295,16 @@ const Search = () => {
 
                 {filteredBlogs.length > 0 && (
                   <div className="search-grid">
-
                     {filteredBlogs.map((blog) => {
-
-                      const image =
-                        getBlogImage(blog);
+                      const image = getBlogImage(blog);
 
                       return (
-                        <article
-                          className="search-card"
-                          key={blog.id}
-                        >
-
+                        <article className="search-card" key={blog.id}>
                           {/* Image */}
 
                           <div className="search-card-image">
-
                             {image ? (
-                              <img
-                                src={image}
-                                alt={blog.title || "Blog"}
-                              />
+                              <img src={image} alt={blog.title || "Blog"} />
                             ) : (
                               <div className="search-card-placeholder">
                                 <FaFileAlt />
@@ -391,61 +316,42 @@ const Search = () => {
                                 {blog.category}
                               </span>
                             )}
-
                           </div>
 
                           {/* Content */}
 
                           <div className="search-card-content">
-
-                            <h3>
-                              {blog.title}
-                            </h3>
+                            <h3>{blog.title}</h3>
 
                             <p>
                               {blog.excerpt ||
-                                String(
-                                  blog.content || ""
-                                ).slice(0, 150) +
+                                String(blog.content || "").slice(0, 150) +
                                   "..."}
                             </p>
 
                             <div className="search-card-footer">
-
-                              <span>
-                                By{" "}
-                                {getAuthorName(blog)}
-                              </span>
+                              <span>By {getAuthorName(blog)}</span>
 
                               <Link
-                                to={`/blog/${
-                                  blog.slug || blog.id
-                                }`}
+                                to={`/blog/${blog.slug || blog.id}`}
                                 className="read-more"
                               >
                                 Read
                                 <FaArrowRight />
                               </Link>
-
                             </div>
-
                           </div>
-
                         </article>
                       );
                     })}
-
                   </div>
                 )}
-
               </>
             )}
-
-        </div>
-
-      </section>
-
-    </main>
+          </div>
+        </section>
+      </main>
+    </>
   );
 };
 
