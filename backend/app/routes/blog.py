@@ -171,7 +171,7 @@ async def create_blog(
 
     content: str = Form(...),
 
-    excerpt: str  = Form(None),
+    excerpt: str = Form(None),
 
     category: str = Form(None),
 
@@ -279,6 +279,8 @@ async def create_blog(
     db.commit()
 
     db.refresh(new_blog)
+
+    _ = new_blog.author
 
     return serialize_blog(new_blog)
 
@@ -456,9 +458,6 @@ async def update_blog(
         pass
 
     elif is_owner:
-        # ==========================================
-        # 🚨 USER: only draft and rejected are editable
-        # ==========================================
         if blog.status not in ("draft", "rejected"):
             raise HTTPException(
                 status_code=403,
@@ -470,7 +469,6 @@ async def update_blog(
                 ),
             )
 
-        # User cannot self-publish
         if status not in ("draft", "pending"):
             raise HTTPException(
                 status_code=403,
@@ -549,6 +547,8 @@ async def update_blog(
     db.commit()
 
     db.refresh(blog)
+
+    _ = blog.author
 
     return serialize_blog(blog)
 

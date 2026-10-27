@@ -95,4 +95,5 @@ class Blog(Base):
     author = relationship(
         "User",
         backref="blogs",
+        lazy="joined",          # ✅ ADDED — author hamesha eager-load hoga
     )

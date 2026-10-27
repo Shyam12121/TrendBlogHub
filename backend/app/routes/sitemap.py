@@ -5,13 +5,16 @@ from datetime import datetime
 from app.database.database import get_db
 from app.models.blog import Blog
 
+# Tag mein bhi email nahi hona chahiye
 router = APIRouter(tags=["Sitemap"])
 
 SITE_URL = "https://trendbloghub.com"
 
 
-@router.get("/sitemap.xml")
-def sitemap(db: Session = Depends(get_db)):
+# ✅ Route ka naam /sitemap.xml hona chahiye
+# ✅ Function ka naam valid Python identifier hona chahiye
+@router.get("/sitemap.xml", include_in_schema=False)
+def get_sitemap(db: Session = Depends(get_db)):
     blogs = (
         db.query(Blog)
         .filter(Blog.status == "published")
@@ -57,6 +60,7 @@ def sitemap(db: Session = Depends(get_db)):
     </url>"""
         )
 
+    # ✅ Sahi XML namespace use karein (email nahi)
     xml = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {''.join(urls)}

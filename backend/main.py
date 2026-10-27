@@ -15,6 +15,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from dotenv import load_dotenv
 
+
 # ==========================================
 # LOAD ENVIRONMENT VARIABLES
 # ==========================================
@@ -66,7 +67,9 @@ from app.routes.blog import (
 from app.routes.profile import (
     router as profile_router
 )
+
 from app.routes.sitemap import router as sitemap_router
+
 
 # ==========================================
 # CREATE DATABASE TABLES
@@ -84,7 +87,9 @@ Base.metadata.create_all(
 app = FastAPI(
     title="Blog API",
     version="1.0.0",
+    debug=True,          # ← yeh add karo
 )
+
 
 
 # ==========================================
@@ -106,22 +111,20 @@ UPLOAD_DIR = os.path.join(
 # ==========================================
 
 os.makedirs(
-    os.path.join(
-        UPLOAD_DIR,
-        "avatars",
-    ),
+    os.path.join(UPLOAD_DIR, "avatars"),
     exist_ok=True,
 )
 
 os.makedirs(
-    os.path.join(
-        UPLOAD_DIR,
-        "covers",
-    ),
+    os.path.join(UPLOAD_DIR, "covers"),
     exist_ok=True,
 )
 
-os.makedirs(os.path.join(UPLOAD_DIR, "blogs"), exist_ok=True)  # ← ADD
+os.makedirs(
+    os.path.join(UPLOAD_DIR, "blogs"),
+    exist_ok=True,
+)
+
 
 # ==========================================
 # SERVE UPLOADED FILES
@@ -129,17 +132,14 @@ os.makedirs(os.path.join(UPLOAD_DIR, "blogs"), exist_ok=True)  # ← ADD
 
 app.mount(
     "/uploads",
-    StaticFiles(
-        directory=UPLOAD_DIR
-    ),
+    StaticFiles(directory=UPLOAD_DIR),
     name="uploads",
 )
 
 
 # ==========================================
-# CORS - COMPLETE FIX
+# CORS
 # ==========================================
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -160,61 +160,19 @@ app.add_middleware(
 # ROUTES
 # ==========================================
 
-
-# ------------------------------------------
-# AUTH
-# ------------------------------------------
-# Auth router already has:
-# prefix="/auth"
-# ------------------------------------------
-
-app.include_router(
-    auth_router
-)
-
-
-# ------------------------------------------
-# ADMIN
-# ------------------------------------------
-# Admin router already has:
-# prefix="/admin"
-# ------------------------------------------
-
-app.include_router(
-    admin_router
-)
-
-
-# ------------------------------------------
-# BLOG
-# ------------------------------------------
-# Blog router already has its own prefix
-# ------------------------------------------
-
-app.include_router(
-    blog_router
-)
-
-
-# ------------------------------------------
-# USER PROFILE
-# ------------------------------------------
-# Profile router:
-# prefix="/profile"
-# ------------------------------------------
-
-app.include_router(
-    profile_router
-)
-
+app.include_router(auth_router)
+app.include_router(admin_router)
+app.include_router(blog_router)
+app.include_router(profile_router)
 app.include_router(sitemap_router)
+
+
 # ==========================================
 # ROOT
 # ==========================================
 
 @app.get("/")
 def root():
-
     return {
         "message": "Blog API is running",
         "status": "success",
@@ -228,24 +186,15 @@ def root():
 
 @app.get("/db-test")
 def database_test():
-
     try:
-
         with engine.connect() as connection:
-
-            result = connection.execute(
-                text("SELECT 1")
-            )
-
+            result = connection.execute(text("SELECT 1"))
             result.fetchone()
-
         return {
             "success": True,
             "message": "MySQL connected",
         }
-
     except Exception as e:
-
         return {
             "success": False,
             "error": str(e),
@@ -258,7 +207,6 @@ def database_test():
 
 @app.get("/health")
 def health():
-
     return {
         "status": "healthy",
         "database": "connected",

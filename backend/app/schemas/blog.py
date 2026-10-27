@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Optional
 
 from pydantic import (
     BaseModel,
@@ -10,11 +11,11 @@ class BlogCreate(BaseModel):
     title: str
     slug: str
     content: str
-    excerpt: str
-    featured_image: str
-    category: str
-    meta_title: str
-    meta_description: str
+    excerpt: Optional[str] = None
+    featured_image: Optional[str] = None
+    category: Optional[str] = None
+    meta_title: Optional[str] = None
+    meta_description: Optional[str] = None
     status: str = "draft"
 
 
@@ -22,11 +23,11 @@ class BlogUpdate(BaseModel):
     title: str
     slug: str
     content: str
-    excerpt: str
-    featured_image: str
-    category: str
-    meta_title: str
-    meta_description: str
+    excerpt: Optional[str] = None
+    featured_image: Optional[str] = None
+    category: Optional[str] = None
+    meta_title: Optional[str] = None
+    meta_description: Optional[str] = None
     status: str
 
 
@@ -43,23 +44,23 @@ class BlogResponse(BaseModel):
 
     content: str
 
-    excerpt: str
+    excerpt: Optional[str] = None
 
-    featured_image: str
+    featured_image: Optional[str] = None
 
-    category: str
+    category: Optional[str] = None
 
-    meta_title: str
+    meta_title: Optional[str] = None
 
-    meta_description: str
+    meta_description: Optional[str] = None
 
     status: str
 
     author_id: int
 
-    author_name: str
+    author_name: Optional[str] = None
 
-    author_username: str
+    author_username: Optional[str] = None
 
     created_at: datetime
 
