@@ -1,16 +1,80 @@
+
+# ------------------------------------------------------------
+# 1. Default rules for all crawlers
+# ------------------------------------------------------------
 User-agent: *
 Allow: /
-
-# Block admin/internal pages
 Disallow: /admin/
-Disallow: /login/
-Disallow: /register/
-Disallow: /dashboard/
-Disallow: /profile/edit/
-Disallow: /search/
-Disallow: /*?sort=
-Disallow: /*?filter=
-Disallow: /*?page=
+Disallow: /api/
+Disallow: /search
+Disallow: /*?s=
+Disallow: /*?utm_
+Disallow: /*&utm_
 
-# Sitemaps
-Sitemap: https://trendbloghub.com/sitemap.xml
+# ------------------------------------------------------------
+# 2. Major search engines
+# ------------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# ------------------------------------------------------------
+# 3. AI search / answer-engine crawlers (retrieval and citation)
+#    Allowed so your content can appear and be cited in AI answers.
+# ------------------------------------------------------------
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# ------------------------------------------------------------
+# 4. AI training crawlers (model training data)
+#    Currently ALLOWED for maximum reach. To opt out of training,
+#    change "Allow: /" to "Disallow: /" under each agent below.
+# ------------------------------------------------------------
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# ------------------------------------------------------------
+# 5. Aggressive scrapers with no search or citation benefit
+# ------------------------------------------------------------
+User-agent: Bytespider
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# ------------------------------------------------------------
+# Sitemap
+# ------------------------------------------------------------
+Sitemap: https://www.trendbloghub.com/sitemap.xml
