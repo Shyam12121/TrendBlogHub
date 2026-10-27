@@ -12,11 +12,21 @@ export default function SEO({
   image,
   type = "website",
   schema,
-  noindex = false,
+  noindex = false,        // noindex, nofollow (admin/login)
+  noindexFollow = false,  // noindex, follow (terms/privacy)
 }) {
   const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
   const fullUrl = url.startsWith("http") ? url : `${SITE_URL}${url}`;
   const fullImage = image || DEFAULT_IMAGE;
+
+  // Robots content decide karein
+  let robotsContent = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+  
+  if (noindex) {
+    robotsContent = "noindex, nofollow";
+  } else if (noindexFollow) {
+    robotsContent = "noindex, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+  }
 
   return (
     <Helmet>
@@ -26,15 +36,8 @@ export default function SEO({
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={fullUrl} />
 
-      {/* ✅ Robots — dono cases handle karein */}
-      {noindex ? (
-        <meta name="robots" content="noindex, nofollow" />
-      ) : (
-        <meta
-          name="robots"
-          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-        />
-      )}
+      {/* ✅ Robots */}
+      <meta name="robots" content={robotsContent} />
 
       {/* Favicon */}
       <link rel="icon" type="image/png" href={`${SITE_URL}/favicon.png`} />

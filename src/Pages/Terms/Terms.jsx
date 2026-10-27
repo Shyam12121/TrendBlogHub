@@ -18,6 +18,7 @@ const Terms = () => {
         description="Read the TrendBlogHub Terms & Conditions to understand the rules, guidelines and policies for using our website and services."
         keywords="trendbloghub terms, terms and conditions, user agreement, website rules"
         url="/terms-and-conditions/"
+        noindexFollow={true}
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
@@ -35,9 +36,7 @@ const Terms = () => {
       />
 
       <main className="terms-page">
-        {/* =====================================================
-            HERO
-        ===================================================== */}
+        {/* HERO */}
 
         <section className="terms-hero">
           <div className="terms-container">
@@ -64,9 +63,7 @@ const Terms = () => {
           </div>
         </section>
 
-        {/* =====================================================
-            CONTENT
-        ===================================================== */}
+        {/* CONTENT */}
 
         <section className="terms-content-section">
           <div className="terms-container terms-layout">
@@ -113,7 +110,6 @@ const Terms = () => {
               </div>
 
               {/* 01 */}
-
               <section id="acceptance" className="terms-section">
                 <div className="terms-section-heading">
                   <span>01</span>
@@ -130,7 +126,6 @@ const Terms = () => {
               </section>
 
               {/* 02 */}
-
               <section id="eligibility" className="terms-section">
                 <div className="terms-section-heading">
                   <span>02</span>
@@ -146,7 +141,6 @@ const Terms = () => {
               </section>
 
               {/* 03 */}
-
               <section id="accounts" className="terms-section">
                 <div className="terms-section-heading">
                   <span>03</span>
@@ -167,9 +161,7 @@ const Terms = () => {
                     Maintain the security of your password and account
                     credentials.
                   </li>
-                  <li>
-                    Promptly update any information that becomes outdated.
-                  </li>
+                  <li>Promptly update any information that becomes outdated.</li>
                   <li>
                     Accept full responsibility for all activities that occur
                     under your account.
@@ -182,7 +174,6 @@ const Terms = () => {
               </section>
 
               {/* 04 */}
-
               <section id="content" className="terms-section">
                 <div className="terms-section-heading">
                   <span>04</span>
@@ -219,7 +210,6 @@ const Terms = () => {
               </section>
 
               {/* 05 */}
-
               <section id="ip" className="terms-section">
                 <div className="terms-section-heading">
                   <span>05</span>
@@ -237,7 +227,6 @@ const Terms = () => {
               </section>
 
               {/* 06 */}
-
               <section id="prohibited" className="terms-section">
                 <div className="terms-section-heading">
                   <span>06</span>
@@ -265,7 +254,6 @@ const Terms = () => {
               </section>
 
               {/* 07 */}
-
               <section id="third-party" className="terms-section">
                 <div className="terms-section-heading">
                   <span>07</span>
@@ -282,7 +270,6 @@ const Terms = () => {
               </section>
 
               {/* 08 */}
-
               <section id="dmca" className="terms-section">
                 <div className="terms-section-heading">
                   <span>08</span>
@@ -301,7 +288,6 @@ const Terms = () => {
               </section>
 
               {/* 09 */}
-
               <section id="termination" className="terms-section">
                 <div className="terms-section-heading">
                   <span>09</span>
@@ -317,7 +303,6 @@ const Terms = () => {
               </section>
 
               {/* 10 */}
-
               <section id="disclaimer" className="terms-section">
                 <div className="terms-section-heading">
                   <span>10</span>
@@ -334,7 +319,6 @@ const Terms = () => {
               </section>
 
               {/* 11 */}
-
               <section id="liability" className="terms-section">
                 <div className="terms-section-heading">
                   <span>11</span>
@@ -350,7 +334,6 @@ const Terms = () => {
               </section>
 
               {/* 12 */}
-
               <section id="changes" className="terms-section">
                 <div className="terms-section-heading">
                   <span>12</span>
@@ -367,7 +350,6 @@ const Terms = () => {
               </section>
 
               {/* 13 */}
-
               <section id="law" className="terms-section">
                 <div className="terms-section-heading">
                   <span>13</span>
@@ -383,7 +365,6 @@ const Terms = () => {
               </section>
 
               {/* 14 */}
-
               <section
                 id="contact"
                 className="terms-section terms-contact-section"
@@ -410,9 +391,7 @@ const Terms = () => {
           </div>
         </section>
 
-        {/* =====================================================
-            BOTTOM CTA
-        ===================================================== */}
+        {/* BOTTOM CTA */}
 
         <section className="terms-bottom">
           <div className="terms-container">

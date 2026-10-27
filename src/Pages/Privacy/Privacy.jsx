@@ -27,6 +27,7 @@ const Privacy = () => {
         description="Read the TrendBlogHub Privacy Policy to learn how we handle information, cookies, analytics, advertising and third-party services."
         keywords="trendbloghub privacy policy, data collection blog, cookie policy, advertising disclosure"
         url="/privacy-policy/"
+        noindexFollow={true}
         schema={{
           "@context": "https://schema.org",
           "@type": "WebPage",
@@ -44,9 +45,7 @@ const Privacy = () => {
       />
 
       <main className="privacy-page">
-        {/* =====================================================
-            HERO
-        ===================================================== */}
+        {/* HERO */}
 
         <section className="privacy-hero">
           <div className="privacy-container">
@@ -72,9 +71,7 @@ const Privacy = () => {
           </div>
         </section>
 
-        {/* =====================================================
-            INTRO
-        ===================================================== */}
+        {/* INTRO */}
 
         <section className="privacy-content-section">
           <div className="privacy-container privacy-layout">
@@ -120,7 +117,6 @@ const Privacy = () => {
               </div>
 
               {/* 1 */}
-
               <section id="information" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>01</span>
@@ -144,7 +140,6 @@ const Privacy = () => {
               </section>
 
               {/* 2 */}
-
               <section id="use" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>02</span>
@@ -164,7 +159,6 @@ const Privacy = () => {
               </section>
 
               {/* 3 */}
-
               <section id="cookies" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>03</span>
@@ -190,7 +184,6 @@ const Privacy = () => {
               </section>
 
               {/* 4 */}
-
               <section id="advertising" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>04</span>
@@ -218,7 +211,6 @@ const Privacy = () => {
               </section>
 
               {/* 5 */}
-
               <section id="analytics" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>05</span>
@@ -246,7 +238,6 @@ const Privacy = () => {
               </section>
 
               {/* 6 */}
-
               <section id="contributors" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>06</span>
@@ -275,7 +266,6 @@ const Privacy = () => {
               </section>
 
               {/* 7 */}
-
               <section id="third-party" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>07</span>
@@ -295,7 +285,6 @@ const Privacy = () => {
               </section>
 
               {/* 8 */}
-
               <section id="external" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>08</span>
@@ -318,7 +307,6 @@ const Privacy = () => {
               </section>
 
               {/* 9 */}
-
               <section id="security" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>09</span>
@@ -340,7 +328,6 @@ const Privacy = () => {
               </section>
 
               {/* 10 */}
-
               <section id="children" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>10</span>
@@ -362,7 +349,6 @@ const Privacy = () => {
               </section>
 
               {/* 11 */}
-
               <section id="rights" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>11</span>
@@ -383,7 +369,6 @@ const Privacy = () => {
               </section>
 
               {/* 12 */}
-
               <section id="changes" className="privacy-section">
                 <div className="privacy-section-heading">
                   <span>12</span>
@@ -400,7 +385,6 @@ const Privacy = () => {
               </section>
 
               {/* 13 */}
-
               <section
                 id="contact"
                 className="privacy-section privacy-contact-section"
@@ -424,9 +408,7 @@ const Privacy = () => {
           </div>
         </section>
 
-        {/* =====================================================
-            FOOTER CTA
-        ===================================================== */}
+        {/* FOOTER CTA */}
 
         <section className="privacy-bottom">
           <div className="privacy-container">
