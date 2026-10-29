@@ -218,7 +218,7 @@ const Publications = () => {
         description="Browse the latest TrendBlogHub publications across technology, health, business, finance, education, lifestyle, entertainment and more."
         keywords="TrendBlogHub publications, latest articles, blog publications, technology articles, health articles, business articles, finance articles, education articles, lifestyle articles, entertainment articles"
         url="/publications/"
-        image="https://www.trendbloghub.com/assets/C:\Users\shyam\Downloads\TrendBlogHub\TrendBlogHub\home\ec2-user\publication  page image of trendbloghub.webp"
+        image="https://www.trendbloghub.com/assets/C:\Users\shyam\Downloads\TrendBlogHub\TrendBlogHub\home\ec2-user\publication-page-image-of-trendbloghub.webp"
         schema={{
           "@context": "https://schema.org",
           "@graph": [breadcrumbSchema, itemListSchema],
