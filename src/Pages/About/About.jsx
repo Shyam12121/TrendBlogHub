@@ -17,11 +17,12 @@ import SEO from "../../components/SEO/SEO";
 const About = () => {
   return (
     <>
-      <SEO
+         <SEO
         title="About TrendBlogHub – Our Mission, Contributors & Editorial Standards"
         description="Learn about TrendBlogHub, our publishing platform, contributors, editorial approach, content standards and the topics we cover."
         keywords="about trendbloghub, multi-author blog platform, editorial standards, publishing platform, contributors"
         url="/about-us/"
+        image={aboutHero} // 👈 YAHAN ADD KARO (already imported image)
         schema={{
           "@context": "https://schema.org",
           "@graph": [

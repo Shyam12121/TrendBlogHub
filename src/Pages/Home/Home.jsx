@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 import {
@@ -43,13 +44,19 @@ const CATEGORY_COLORS = {
 
 const getCategoryColor = (category) => {
   if (!category) return "#64748b";
-  return CATEGORY_COLORS[category.toLowerCase()] || "#2563eb";
+
+  return (
+    CATEGORY_COLORS[category.toLowerCase()] || "#2563eb"
+  );
 };
 
 const formatDate = (dateStr) => {
   if (!dateStr) return "";
+
   const date = new Date(dateStr);
+
   if (Number.isNaN(date.getTime())) return "";
+
   return date.toLocaleDateString("en-IN", {
     day: "2-digit",
     month: "short",
@@ -59,14 +66,16 @@ const formatDate = (dateStr) => {
 
 const calculateReadTime = (content) => {
   if (!content) return "1 min read";
+
   const text = content.replace(/<[^>]*>/g, "");
   const words = text.split(/\s+/).filter(Boolean).length;
   const minutes = Math.max(1, Math.ceil(words / 200));
+
   return `${minutes} min read`;
 };
 
 // ==========================================
-// CATEGORIES
+// CATEGORIES (static — home page only)
 // ==========================================
 
 const categories = [
@@ -128,6 +137,33 @@ const Home = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "TrendBlogHub",
+    url: window.location.origin,
+    description:
+      "Discover useful information, fresh perspectives, ideas and insights across technology, health, business, finance, lifestyle, education and entertainment.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${window.location.origin}/search?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "TrendBlogHub",
+    url: window.location.origin,
+    description:
+      "A growing publishing platform where writers, professionals, creators, businesses, and readers share and discover useful information.",
+  };
+
+  // ------------------------------------------
+  // LOAD PUBLISHED BLOGS FROM BACKEND
+  // ------------------------------------------
+
   useEffect(() => {
     const loadArticles = async () => {
       try {
@@ -142,20 +178,40 @@ const Home = () => {
         const mapped = blogList.map((blog) => ({
           id: blog.id,
           slug: blog.slug,
+
           title: blog.title,
-          excerpt: blog.excerpt || "Read the full article to know more...",
-          image: blog.featured_image || blog.image || null,
+
+          excerpt:
+            blog.excerpt ||
+            "Read the full article to know more...",
+
+          image:
+            blog.featured_image ||
+            blog.image ||
+            null,
+
           category: blog.category || "General",
           categoryColor: getCategoryColor(blog.category),
+
           author: {
-            name: blog.author_name || blog.author?.name || "Contributor",
+            name:
+              blog.author_name ||
+              blog.author?.name ||
+              "Contributor",
             role: "Author",
-            avatar: blog.author?.avatar || blog.author_avatar || null,
+            avatar:
+              blog.author?.avatar ||
+              blog.author_avatar ||
+              null,
           },
+
           date: formatDate(blog.created_at),
+
           readTime: calculateReadTime(blog.content),
+
           shares: blog.shares || 0,
           comments: blog.comments || 0,
+
           featured: blog.is_featured || false,
         }));
 
@@ -173,37 +229,73 @@ const Home = () => {
 
   return (
     <>
-      <SEO
+      <Helmet>
+        <title>
+          TrendBlogHub – Discover Ideas, Insights & Trending Topics
+        </title>
+
+        <meta
+          name="description"
+          content="Discover useful articles, ideas and insights across technology, health, business, finance, lifestyle, education and entertainment at TrendBlogHub."
+        />
+
+        <meta
+          name="keywords"
+          content="TrendBlogHub, blogs, articles, technology, AI, health, business, finance, education, travel, lifestyle, entertainment"
+        />
+
+        <meta name="robots" content="index, follow" />
+
+        <link
+          rel="canonical"
+          href={window.location.origin + "/"}
+        />
+
+        <meta
+          property="og:title"
+          content="TrendBlogHub – Discover Ideas, Insights & Trending Topics"
+        />
+
+        <meta
+          property="og:description"
+          content="Discover useful articles, ideas and insights across a wide range of subjects on TrendBlogHub."
+        />
+
+        <meta property="og:type" content="website" />
+
+        <meta
+          property="og:url"
+          content={window.location.origin + "/"}
+        />
+
+        <script type="application/ld+json">
+          {JSON.stringify(websiteSchema)}
+        </script>
+
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+      </Helmet>
+
+            <SEO
         title="TrendBlogHub – Discover Ideas, Insights & Trending Topics"
         description="Discover useful articles, ideas and insights across technology, health, business, finance, lifestyle, education and entertainment at TrendBlogHub."
-        keywords="TrendBlogHub, blogs, articles, technology, AI, health, business, finance, education, travel, lifestyle, entertainment"
+        keywords="trending blog, multi-category blog, technology health finance articles, guest blogging platform"
         url="/"
+        image="https://www.trendbloghub.com/logo.png" // 👈 YAHAN CHANGE KARO (public/logo.png ka URL)
         schema={{
           "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "WebSite",
-              name: "TrendBlogHub",
-              url: "https://trendbloghub.com/",
-              description:
-                "Discover useful information, fresh perspectives, ideas and insights across technology, health, business, finance, lifestyle, education and entertainment.",
-              potentialAction: {
-                "@type": "SearchAction",
-                target:
-                  "https://trendbloghub.com/?s={search_term_string}",
-                "query-input": "required name=search_term_string",
-              },
-            },
-            {
-              "@type": "Organization",
-              name: "TrendBlogHub",
-              url: "https://trendbloghub.com/",
-              description:
-                "A growing publishing platform where writers, professionals, creators, businesses, and readers share and discover useful information.",
-            },
-          ],
+          "@type": "WebSite",
+          name: "TrendBlogHub",
+          url: "https://trendbloghub.com/",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://trendbloghub.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
         }}
       />
+
 
       <main className="home-page">
         {/* HERO */}
@@ -221,14 +313,18 @@ const Home = () => {
               <h2>Explore Our Categories</h2>
 
               <p>
-                Explore useful content across the subjects people are learning
-                about, discussing, and exploring today.
+                Explore useful content across the
+                subjects people are learning about,
+                discussing, and exploring today.
               </p>
             </div>
 
             <div className="categories-grid">
               {categories.map((category) => (
-                <article className="category-card" key={category.slug}>
+                <article
+                  className="category-card"
+                  key={category.slug}
+                >
                   <div
                     className="category-icon"
                     style={{
@@ -240,9 +336,12 @@ const Home = () => {
                   </div>
 
                   <h3>{category.name}</h3>
+
                   <p>{category.description}</p>
 
-                  <Link to={`/category/${category.slug}`}>
+                  <Link
+                    to={`/category/${category.slug}`}
+                  >
                     Explore {category.name}
                     <FaArrowRight />
                   </Link>
@@ -252,8 +351,11 @@ const Home = () => {
           </div>
         </section>
 
-        {/* LATEST PUBLICATIONS */}
-        <FeaturedArticles articles={articles} loading={loading} />
+        {/* LATEST PUBLICATIONS — NOW DYNAMIC */}
+        <FeaturedArticles
+          articles={articles}
+          loading={loading}
+        />
 
         {/* WHY TREND BLOG HUB */}
         <section className="why-section">
@@ -267,8 +369,9 @@ const Home = () => {
               <h2>Why TrendBlogHub?</h2>
 
               <p>
-                A growing publishing platform built around useful information,
-                different voices, and meaningful content.
+                A growing publishing platform built
+                around useful information, different
+                voices, and meaningful content.
               </p>
             </div>
 
@@ -276,11 +379,15 @@ const Home = () => {
               <article className="why-card">
                 <div className="why-number">01</div>
                 <FaUsers className="why-icon" />
+
                 <h3>A Place for Different Voices</h3>
+
                 <p>
-                  Useful information can come from many different backgrounds
-                  and experiences. TrendBlogHub gives writers, professionals,
-                  creators, and businesses a place to share knowledge and ideas
+                  Useful information can come from many
+                  different backgrounds and experiences.
+                  TrendBlogHub gives writers,
+                  professionals, creators, and businesses
+                  a place to share knowledge and ideas
                   with a wider audience.
                 </p>
               </article>
@@ -288,33 +395,45 @@ const Home = () => {
               <article className="why-card">
                 <div className="why-number">02</div>
                 <FaLayerGroup className="why-icon" />
+
                 <h3>Multiple Categories</h3>
+
                 <p>
-                  Technology, health, finance, business, education, lifestyle,
-                  entertainment, and more — explore different subjects without
-                  limiting yourself to a single area of interest.
+                  Technology, health, finance, business,
+                  education, lifestyle, entertainment,
+                  and more — explore different subjects
+                  without limiting yourself to a single
+                  area of interest.
                 </p>
               </article>
 
               <article className="why-card">
                 <div className="why-number">03</div>
                 <FaBookOpen className="why-icon" />
+
                 <h3>Reader-Focused Content</h3>
+
                 <p>
-                  We want every article to provide something useful to the
-                  person reading it. Articles should inform, explain, educate,
-                  or offer a meaningful perspective.
+                  We want every article to provide
+                  something useful to the person reading
+                  it. Articles should inform, explain,
+                  educate, or offer a meaningful
+                  perspective.
                 </p>
               </article>
 
               <article className="why-card">
                 <div className="why-number">04</div>
                 <FaCheckCircle className="why-icon" />
+
                 <h3>Quality Matters</h3>
+
                 <p>
-                  Publishing is open to different contributors, but publication
-                  doesn’t mean every submission is automatically accepted.
-                  Content can be reviewed for originality, clarity, relevance,
+                  Publishing is open to different
+                  contributors, but publication doesn’t
+                  mean every submission is automatically
+                  accepted. Content can be reviewed for
+                  originality, clarity, relevance,
                   quality, and publishing standards.
                 </p>
               </article>
@@ -322,12 +441,15 @@ const Home = () => {
               <article className="why-card">
                 <div className="why-number">05</div>
                 <FaLightbulb className="why-icon" />
+
                 <h3>A Growing Knowledge Hub</h3>
+
                 <p>
-                  TrendBlogHub is designed to grow with its contributors and
-                  readers. As new subjects, ideas, technologies, and
-                  conversations emerge, publication categories can evolve with
-                  them.
+                  TrendBlogHub is designed to grow with
+                  its contributors and readers. As new
+                  subjects, ideas, technologies, and
+                  conversations emerge, publication
+                  categories can evolve with them.
                 </p>
               </article>
             </div>
@@ -339,15 +461,24 @@ const Home = () => {
           <div className="container">
             <div className="publish-card">
               <div className="publish-content">
-                <span className="publish-badge">✍️ FOR CONTRIBUTORS</span>
+                <span className="publish-badge">
+                  ✍️ FOR CONTRIBUTORS
+                </span>
+
                 <h2>Want to Share Your Knowledge?</h2>
+
                 <p>
-                  Have an experience, idea, expertise, or perspective worth
-                  sharing? TrendBlogHub gives contributors an opportunity to
-                  publish useful content for readers interested in their
-                  subject.
+                  Have an experience, idea, expertise, or
+                  perspective worth sharing? TrendBlogHub
+                  gives contributors an opportunity to
+                  publish useful content for readers
+                  interested in their subject.
                 </p>
-                <Link to="/login" className="publish-btn">
+
+                <Link
+                  to="/login"
+                  className="publish-btn"
+                >
                   Start Publishing
                   <FaArrowRight />
                 </Link>
@@ -360,11 +491,16 @@ const Home = () => {
         <section className="explore-footer-section">
           <div className="container">
             <div className="explore-footer-content">
-              <span className="content-badge">KEEP EXPLORING</span>
+              <span className="content-badge">
+                KEEP EXPLORING
+              </span>
+
               <h2>Read. Discover. Learn.</h2>
+
               <p>
-                Read something useful. Discover a new perspective. Learn about a
-                subject you didn’t know much about.
+                Read something useful. Discover a new
+                perspective. Learn about a subject you
+                didn’t know much about.
               </p>
 
               <div className="explore-footer-links">
@@ -372,6 +508,7 @@ const Home = () => {
                   Explore Publications
                   <FaArrowRight />
                 </Link>
+
                 <Link to="/categories">
                   Browse Categories
                   <FaArrowRight />
@@ -379,7 +516,8 @@ const Home = () => {
               </div>
 
               <div className="brand-tagline">
-                TrendBlogHub — Ideas, Insights & Information Worth Exploring.
+                TrendBlogHub — Ideas, Insights &
+                Information Worth Exploring.
               </div>
             </div>
           </div>

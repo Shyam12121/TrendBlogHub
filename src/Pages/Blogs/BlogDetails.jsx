@@ -97,7 +97,7 @@ const BlogDetails = () => {
         return (
             blog?.author_name ||
             blog?.author?.name ||
-            "IndiBlogHub Author"
+            "TrendBlogHub Author"
         );
     };
 

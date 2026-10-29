@@ -11,11 +11,12 @@ const CategoryDirectory = () => {
 
   return (
     <>
-      <SEO
+            <SEO
         title="All Categories – Explore Topics"
         description="Browse all TrendBlogHub categories: Technology, Health, Business, Finance, Education, Travel, Lifestyle, Entertainment and more."
         keywords="TrendBlogHub categories, blog topics, technology, health, business, finance, education, travel, lifestyle, entertainment"
         url="/categories/"
+        image="https://www.trendbloghub.com/assets/all-categories-banner.jpg" /* 👈 Added */
         schema={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",

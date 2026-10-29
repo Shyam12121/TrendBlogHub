@@ -11,6 +11,7 @@ import {
 
 import { getPublicBlogs } from "../../services/adminApi";
 import SEO from "../../components/SEO/SEO";
+import publicationBg from "../../assets/publication  page image of trendbloghub.webp"; // 👈 Image Import ki
 
 import "./Publications.css";
 
@@ -217,6 +218,7 @@ const Publications = () => {
         description="Browse the latest TrendBlogHub publications across technology, health, business, finance, education, lifestyle, entertainment and more."
         keywords="TrendBlogHub publications, latest articles, blog publications, technology articles, health articles, business articles, finance articles, education articles, lifestyle articles, entertainment articles"
         url="/publications/"
+        image="https://www.trendbloghub.com/assets/C:\Users\shyam\Downloads\TrendBlogHub\TrendBlogHub\home\ec2-user\publication  page image of trendbloghub.webp"
         schema={{
           "@context": "https://schema.org",
           "@graph": [breadcrumbSchema, itemListSchema],
@@ -225,10 +227,17 @@ const Publications = () => {
 
       <main className="publications-page">
         {/* ==========================================
-            HERO
+            HERO (Background Image Added)
         ========================================== */}
-
-        <section className="directory-hero">
+    
+<section 
+  className="directory-hero"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${publicationBg})`, // 👈 Black overlay 40%
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
           <div className="directory-hero-content">
             <span className="directory-badge">TREND BLOG HUB</span>
 
@@ -254,7 +263,6 @@ const Publications = () => {
         {/* ==========================================
             SEARCH + SORT
         ========================================== */}
-
         <section className="publication-tools-section">
           <div className="publications-container">
             <div className="publication-tools">
@@ -317,7 +325,6 @@ const Publications = () => {
         {/* ==========================================
             EXPLORE CATEGORIES
         ========================================== */}
-
         <section className="categories-section">
           <div className="publications-container">
             <div className="section-heading">
@@ -344,7 +351,6 @@ const Publications = () => {
         {/* ==========================================
             LATEST PUBLICATIONS
         ========================================== */}
-
         <section className="publications-section">
           <div className="publications-container">
             <div className="publications-header">
@@ -482,7 +488,6 @@ const Publications = () => {
         {/* ==========================================
             PUBLISH CTA
         ========================================== */}
-
         <section className="publish-section">
           <div className="publications-container">
             <div className="publish-card">

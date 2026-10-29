@@ -266,7 +266,7 @@ const Header = () => {
         ====================================== */}
 
         <Link
-          to="/categories"
+          to="/category"
           onClick={closeMobile}
         >
           <FaThLarge />
