@@ -19,7 +19,7 @@ const Footer = () => {
       ========================================== */}
 
       <div className="footer-top">
-        <p>🚀 Grow your brand with BlogHub</p>
+        <p>🚀 Grow your brand with TrendBlogHub</p>
       </div>
 
       <div className="container">

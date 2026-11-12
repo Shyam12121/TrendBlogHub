@@ -91,7 +91,7 @@ const Category = () => {
       <div className="category-not-found">
         <h1>Category Not Found</h1>
         <p>The category you are looking for does not exist.</p>
-        <Link to="/categories">Browse All Categories</Link>
+        <Link to="/category">Browse All Categories</Link>
       </div>
     );
   }
