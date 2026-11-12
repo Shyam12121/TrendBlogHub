@@ -81,7 +81,7 @@ const calculateReadTime = (content) => {
 const categories = [
   {
     name: "Health & Wellness",
-    slug: "health",
+    slug: "health-wellness",
     description:
       "Explore articles covering healthy living, fitness, nutrition, wellness, personal care, sleep, and other health-related topics.",
     icon: <FaHeart />,
@@ -89,23 +89,23 @@ const categories = [
   },
   {
     name: "Technology & AI",
-    slug: "technology",
+    slug: "technology-ai",
     description:
       "Discover articles about technology, software, smartphones, apps, digital tools, artificial intelligence, cybersecurity, and the changing digital world.",
     icon: <FaLaptopCode />,
     color: "#2563eb",
   },
   {
-    name: "Business & Finance",
-    slug: "business",
+    name: "Digital Marketing",
+    slug: "digital-marketing",
     description:
-      "Explore entrepreneurship, business, personal finance, marketing, workplace trends, investing concepts, and developments shaping the modern economy.",
+      "Learn about SEO, social media marketing, content strategy, paid ads, email marketing, analytics, and modern digital growth tactics.",
     icon: <FaBriefcase />,
     color: "#7c3aed",
   },
   {
     name: "Education & Career",
-    slug: "education",
+    slug: "education-career",
     description:
       "Find useful information about education, learning, professional skills, careers, courses, workplace development, and personal growth.",
     icon: <FaGraduationCap />,
@@ -113,19 +113,27 @@ const categories = [
   },
   {
     name: "Travel & Lifestyle",
-    slug: "travel",
+    slug: "travel-lifestyle",
     description:
       "Discover travel ideas, destinations, food, home and living, productivity, personal interests, and everyday lifestyle topics.",
     icon: <FaPlane />,
     color: "#0891b2",
   },
   {
-    name: "Entertainment & Media",
-    slug: "entertainment",
+    name: "Business & Finance",
+    slug: "business-finance",
     description:
-      "Explore movies, television, streaming, gaming, music, popular culture, and other entertainment topics.",
+      "Explore entrepreneurship, business, personal finance, marketing, workplace trends, investing concepts, and developments shaping the modern economy.",
     icon: <FaFilm />,
     color: "#db2777",
+  },
+  {
+    name: "Programming & Dev",
+    slug: "programming-dev",
+    description:
+      "Explore coding tutorials, programming languages, web development, frameworks, developer tools, and software engineering concepts.",
+    icon: <FaLaptopCode />,
+    color: "#2563eb",
   },
 ];
 

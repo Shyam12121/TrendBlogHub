@@ -1,21 +1,12 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-
-  # 1. Trailing slash hatao (sirf GET requests ke liye, aur root "/" ko chhod ke)
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !^/$
-  RewriteRule ^(.+)/$ /$1 [L,R=301]
-
-  # 2. WordPress paths (/category/ aur /blog/) WordPress ko do
-  RewriteCond %{REQUEST_URI} ^/(category|blog)(/|$)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.php [L]
-
-  # 3. Baaki sab React app ko do
+  
+  # Agar file ya folder exist karta hai, toh use waise hi serve karo
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME} !-l
+  
+  # Warna sab kuch index.html par redirect kar do (React handle karega)
   RewriteRule . /index.html [L]
 </IfModule>
