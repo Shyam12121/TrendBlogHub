@@ -7,11 +7,12 @@ import {
   FaImage,
   FaPenNib,
   FaTimes,
+  FaExclamationCircle,
 } from "react-icons/fa";
 
-import {
-  createBlog,
-} from "../../services/adminApi";
+import { toast } from "react-hot-toast";
+
+import { createBlog } from "../../services/adminApi";
 
 import categories from "../../data/categories";
 
@@ -19,23 +20,22 @@ import RichTextEditor from "../../components/editor/RichTextEditor";
 
 import "./BlogEditor.css";
 
-const CATEGORY_LIST =
-  Object.values(categories);
+const CATEGORY_LIST = Object.values(categories);
 
-const MAX_IMAGE_SIZE =
-  5 * 1024 * 1024;
+// ==========================================
+// IMAGE SIZE LIMIT: 1 MB (server limit)
+// ==========================================
+
+const MAX_IMAGE_SIZE = 1 * 1024 * 1024; // 1 MB
+
+const MAX_IMAGE_SIZE_MB = 1;
 
 const getPlainText = (html) => {
-  const div =
-    document.createElement("div");
+  const div = document.createElement("div");
 
   div.innerHTML = html || "";
 
-  return (
-    div.textContent ||
-    div.innerText ||
-    ""
-  )
+  return (div.textContent || div.innerText || "")
     .replace(/\u00a0/g, " ")
     .trim();
 };
@@ -54,35 +54,27 @@ const CreateBlog = () => {
 
   const fileInputRef = useRef(null);
 
-  const [formData, setFormData] =
-    useState({
-      title: "",
-      slug: "",
-      content: "",
-      excerpt: "",
-      category: "",
-      meta_title: "",
-      meta_description: "",
-      status: "draft",
-    });
+  const [formData, setFormData] = useState({
+    title: "",
+    slug: "",
+    content: "",
+    excerpt: "",
+    category: "",
+    meta_title: "",
+    meta_description: "",
+    status: "draft",
+  });
 
-  const [imageFile, setImageFile] =
-    useState(null);
+  const [imageFile, setImageFile] = useState(null);
 
-  const [imagePreview, setImagePreview] =
-    useState("");
+  const [imagePreview, setImagePreview] = useState("");
 
-  const [loading, setLoading] =
-    useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const [error, setError] =
-    useState("");
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
-    const {
-      name,
-      value,
-    } = event.target;
+    const { name, value } = event.target;
 
     setFormData((prev) => ({
       ...prev,
@@ -90,11 +82,8 @@ const CreateBlog = () => {
     }));
   };
 
-  const handleTitleChange = (
-    event
-  ) => {
-    const title =
-      event.target.value;
+  const handleTitleChange = (event) => {
+    const title = event.target.value;
 
     setFormData((prev) => ({
       ...prev,
@@ -103,33 +92,33 @@ const CreateBlog = () => {
     }));
   };
 
-  const handleImageChange = (
-    event
-  ) => {
-    const file =
-      event.target.files?.[0];
+  // ==========================================
+  // IMAGE CHANGE — 1 MB VALIDATION
+  // ==========================================
+
+  const handleImageChange = (event) => {
+    const file = event.target.files?.[0];
 
     if (!file) return;
 
-    if (
-      ![
-        "image/jpeg",
-        "image/png",
-        "image/webp",
-      ].includes(file.type)
-    ) {
-      setError(
-        "Only JPG, PNG and WebP images are allowed."
-      );
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+      setError("Only JPG, PNG and WebP images are allowed.");
+
+      toast.error("Only JPG, PNG and WebP images are allowed.");
 
       event.target.value = "";
       return;
     }
 
+    // ✅ NEW: 1 MB limit check
     if (file.size > MAX_IMAGE_SIZE) {
-      setError(
-        "Featured image must be less than 5 MB."
-      );
+      const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+
+      const msg = `Image size is ${sizeMB} MB. Please upload an image smaller than ${MAX_IMAGE_SIZE_MB} MB.`;
+
+      setError(msg);
+
+      toast.error(msg);
 
       event.target.value = "";
       return;
@@ -138,8 +127,7 @@ const CreateBlog = () => {
     setError("");
     setImageFile(file);
 
-    const previewUrl =
-      URL.createObjectURL(file);
+    const previewUrl = URL.createObjectURL(file);
 
     setImagePreview(previewUrl);
   };
@@ -147,9 +135,7 @@ const CreateBlog = () => {
   useEffect(() => {
     return () => {
       if (imagePreview) {
-        URL.revokeObjectURL(
-          imagePreview
-        );
+        URL.revokeObjectURL(imagePreview);
       }
     };
   }, [imagePreview]);
@@ -163,41 +149,35 @@ const CreateBlog = () => {
     }
   };
 
-  const handleSubmit = async (
-    event
-  ) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setError("");
 
     if (!formData.title.trim()) {
-      setError(
-        "Blog title is required."
-      );
+      setError("Blog title is required.");
       return;
     }
 
     if (!formData.slug.trim()) {
-      setError(
-        "Blog slug is required."
-      );
+      setError("Blog slug is required.");
       return;
     }
 
-    if (
-      !getPlainText(
-        formData.content
-      )
-    ) {
-      setError(
-        "Blog content is required."
-      );
+    if (!getPlainText(formData.content)) {
+      setError("Blog content is required.");
       return;
     }
 
     if (!formData.category) {
+      setError("Please select a category.");
+      return;
+    }
+
+    // ✅ Final safety check before submit
+    if (imageFile && imageFile.size > MAX_IMAGE_SIZE) {
       setError(
-        "Please select a category."
+        `Image must be less than ${MAX_IMAGE_SIZE_MB} MB. Please choose a smaller image.`
       );
       return;
     }
@@ -205,69 +185,52 @@ const CreateBlog = () => {
     try {
       setLoading(true);
 
-      const data =
-        new FormData();
+      const data = new FormData();
 
-      data.append(
-        "title",
-        formData.title.trim()
-      );
-
-      data.append(
-        "slug",
-        formData.slug.trim()
-      );
-
-      data.append(
-        "content",
-        formData.content
-      );
-
-      data.append(
-        "excerpt",
-        formData.excerpt.trim()
-      );
-
-      data.append(
-        "category",
-        formData.category
-      );
-
-      data.append(
-        "meta_title",
-        formData.meta_title.trim()
-      );
-
+      data.append("title", formData.title.trim());
+      data.append("slug", formData.slug.trim());
+      data.append("content", formData.content);
+      data.append("excerpt", formData.excerpt.trim());
+      data.append("category", formData.category);
+      data.append("meta_title", formData.meta_title.trim());
       data.append(
         "meta_description",
         formData.meta_description.trim()
       );
-
-      data.append(
-        "status",
-        formData.status
-      );
+      data.append("status", formData.status);
 
       if (imageFile) {
-        data.append(
-          "featured_image",
-          imageFile
-        );
+        data.append("featured_image", imageFile);
       }
 
       await createBlog(data);
 
-      navigate("/admin/blogs");
+      toast.success("Blog created successfully!");
 
+      navigate("/admin/blogs");
     } catch (err) {
-      console.error(
-        "Create blog error:",
-        err
-      );
+      console.error("Create blog error:", err);
+
+      // ==========================================
+      // ✅ 413 HANDLING — Request Entity Too Large
+      // ==========================================
+
+      if (err?.response?.status === 413) {
+        const msg = `Upload failed: Image is too large. Please upload an image smaller than ${MAX_IMAGE_SIZE_MB} MB.`;
+
+        setError(msg);
+
+        toast.error(msg);
+
+        return;
+      }
 
       setError(
-        err?.response?.data?.detail ||
-          "Failed to create blog."
+        err?.response?.data?.detail || "Failed to create blog."
+      );
+
+      toast.error(
+        err?.response?.data?.detail || "Failed to create blog."
       );
     } finally {
       setLoading(false);
@@ -276,36 +239,27 @@ const CreateBlog = () => {
 
   return (
     <div className="blog-editor-page">
-
       <div className="editor-topbar">
-
         <button
           className="back-btn"
           type="button"
-          onClick={() =>
-            navigate("/admin/blogs")
-          }
+          onClick={() => navigate("/admin/blogs")}
         >
           <FaArrowLeft />
           Back to Blogs
         </button>
 
         <div>
-          <h1>
-            Create New Blog
-          </h1>
+          <h1>Create New Blog</h1>
 
-          <p>
-            Create and publish
-            beautiful content.
-          </p>
+          <p>Create and publish beautiful content.</p>
         </div>
-
       </div>
 
       {error && (
         <div className="editor-error">
-          {error}
+          <FaExclamationCircle />
+          <span>{error}</span>
         </div>
       )}
 
@@ -313,33 +267,21 @@ const CreateBlog = () => {
         className="blog-editor-layout"
         onSubmit={handleSubmit}
       >
-
         <div className="editor-main">
-
           <div className="editor-card">
-
             <div className="editor-card-title">
               <FaPenNib />
 
               <div>
-                <h2>
-                  Blog Content
-                </h2>
+                <h2>Blog Content</h2>
 
-                <p>
-                  Write your complete
-                  article.
-                </p>
+                <p>Write your complete article.</p>
               </div>
             </div>
 
             {/* TITLE */}
-
             <div className="editor-field">
-
-              <label>
-                Blog Title
-              </label>
+              <label>Blog Title</label>
 
               <input
                 type="text"
@@ -349,16 +291,11 @@ const CreateBlog = () => {
                 placeholder="Enter an attractive blog title..."
                 disabled={loading}
               />
-
             </div>
 
             {/* SLUG */}
-
             <div className="editor-field">
-
-              <label>
-                Slug
-              </label>
+              <label>Slug</label>
 
               <input
                 type="text"
@@ -368,16 +305,11 @@ const CreateBlog = () => {
                 placeholder="your-blog-slug"
                 disabled={loading}
               />
-
             </div>
 
             {/* CATEGORY */}
-
             <div className="editor-field">
-
-              <label>
-                Category
-              </label>
+              <label>Category</label>
 
               <select
                 name="category"
@@ -385,32 +317,22 @@ const CreateBlog = () => {
                 onChange={handleChange}
                 disabled={loading}
               >
-                <option value="">
-                  Select Category
-                </option>
+                <option value="">Select Category</option>
 
-                {CATEGORY_LIST.map(
-                  (category) => (
-                    <option
-                      key={category.slug}
-                      value={category.slug}
-                    >
-                      {category.name}
-                    </option>
-                  )
-                )}
-
+                {CATEGORY_LIST.map((category) => (
+                  <option
+                    key={category.slug}
+                    value={category.slug}
+                  >
+                    {category.name}
+                  </option>
+                ))}
               </select>
-
             </div>
 
             {/* EXCERPT */}
-
             <div className="editor-field">
-
-              <label>
-                Excerpt
-              </label>
+              <label>Excerpt</label>
 
               <textarea
                 name="excerpt"
@@ -420,16 +342,11 @@ const CreateBlog = () => {
                 placeholder="Write a short description..."
                 disabled={loading}
               />
-
             </div>
 
             {/* CONTENT */}
-
             <div className="editor-field">
-
-              <label>
-                Content
-              </label>
+              <label>Content</label>
 
               <RichTextEditor
                 value={formData.content}
@@ -441,31 +358,21 @@ const CreateBlog = () => {
                 }
                 disabled={loading}
               />
-
             </div>
-
           </div>
-
         </div>
 
         <div className="editor-sidebar">
-
           {/* IMAGE */}
-
           <div className="editor-card">
-
             <div className="editor-card-title">
               <FaImage />
 
               <div>
-                <h2>
-                  Featured Image
-                </h2>
+                <h2>Featured Image</h2>
 
-                <p>
-                  JPG, PNG or WebP •
-                  Max 5 MB
-                </p>
+                {/* ✅ Updated text — 1 MB */}
+                <p>JPG, PNG or WebP • Max {MAX_IMAGE_SIZE_MB} MB</p>
               </div>
             </div>
 
@@ -478,35 +385,21 @@ const CreateBlog = () => {
             />
 
             {!imagePreview ? (
-
               <button
                 type="button"
                 className="admin-image-upload-btn"
-                onClick={() =>
-                  fileInputRef.current?.click()
-                }
+                onClick={() => fileInputRef.current?.click()}
                 disabled={loading}
               >
                 <FaImage />
 
-                <strong>
-                  Upload Image
-                </strong>
+                <strong>Upload Image</strong>
 
-                <span>
-                  Choose a featured
-                  image
-                </span>
+                <span>Choose a featured image</span>
               </button>
-
             ) : (
-
               <div className="admin-image-preview">
-
-                <img
-                  src={imagePreview}
-                  alt="Featured preview"
-                />
+                <img src={imagePreview} alt="Featured preview" />
 
                 <button
                   type="button"
@@ -518,63 +411,37 @@ const CreateBlog = () => {
                   <FaTimes />
                 </button>
 
-                <span>
-                  {imageFile?.name}
-                </span>
-
+                <span>{imageFile?.name}</span>
               </div>
-
             )}
-
           </div>
 
           {/* SEO */}
-
           <div className="editor-card">
-
-            <h2>
-              SEO Settings
-            </h2>
+            <h2>SEO Settings</h2>
 
             <div className="editor-field">
-
-              <label>
-                Meta Title
-              </label>
+              <label>Meta Title</label>
 
               <input
                 type="text"
                 name="meta_title"
-                value={
-                  formData.meta_title
-                }
+                value={formData.meta_title}
                 onChange={handleChange}
                 maxLength={60}
                 placeholder="SEO meta title..."
                 disabled={loading}
               />
 
-              <small>
-                {
-                  formData.meta_title
-                    .length
-                }
-                /60
-              </small>
-
+              <small>{formData.meta_title.length}/60</small>
             </div>
 
             <div className="editor-field">
-
-              <label>
-                Meta Description
-              </label>
+              <label>Meta Description</label>
 
               <textarea
                 name="meta_description"
-                value={
-                  formData.meta_description
-                }
+                value={formData.meta_description}
                 onChange={handleChange}
                 maxLength={160}
                 rows="5"
@@ -583,30 +450,17 @@ const CreateBlog = () => {
               />
 
               <small>
-                {
-                  formData.meta_description
-                    .length
-                }
-                /160
+                {formData.meta_description.length}/160
               </small>
-
             </div>
-
           </div>
 
           {/* PUBLISHING */}
-
           <div className="editor-card">
-
-            <h2>
-              Publishing
-            </h2>
+            <h2>Publishing</h2>
 
             <div className="editor-field">
-
-              <label>
-                Status
-              </label>
+              <label>Status</label>
 
               <select
                 name="status"
@@ -614,21 +468,13 @@ const CreateBlog = () => {
                 onChange={handleChange}
                 disabled={loading}
               >
-                <option value="draft">
-                  Draft
-                </option>
+                <option value="draft">Draft</option>
 
-                <option value="pending">
-                  Pending
-                </option>
+                <option value="pending">Pending</option>
 
-                <option value="published">
-                  Published
-                </option>
+                <option value="published">Published</option>
               </select>
-
             </div>
-
           </div>
 
           <button
@@ -640,16 +486,12 @@ const CreateBlog = () => {
 
             {loading
               ? "Saving..."
-              : formData.status ===
-                "published"
+              : formData.status === "published"
               ? "Publish Blog"
               : "Save Blog"}
           </button>
-
         </div>
-
       </form>
-
     </div>
   );
 };
